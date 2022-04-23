@@ -1,22 +1,28 @@
 <?php
 
+//Librerias
 use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Routas web
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| Aqui se crean las rutas para CatLearn
 |
 */
 
+//Ruta principal, lo que se despliega al inicio de la pagina
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashcat.index');
+});
+//Ruta para ir al modulo de soporte
+Route::get('/soporte', function () {
+    return view('soportecat.soporteindex');
 });
 
+
+//Rutas que requieren autentificacion
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

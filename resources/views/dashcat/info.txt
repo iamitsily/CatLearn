@@ -1,0 +1,5 @@
+Esta carpeta contiene todos los archivos para el inicio o dashborad de los usuarios
+sean alumnos o docentes.
+
+index.blade.php -> Inicio de la plataforma destinado a desplegarse en '/'.
+uwu

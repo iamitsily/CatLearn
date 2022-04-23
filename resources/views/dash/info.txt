@@ -1,0 +1,3 @@
+Esta carpeta contiene todos los archivos relacionados con AdminLTE y la parte de administrador
+
+index.blade.php -> Pagina principal del panel de administrador
