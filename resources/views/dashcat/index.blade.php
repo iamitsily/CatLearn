@@ -1,1 +1,1 @@
-esta es la principal que se mostrara al inicio
+@extends('layouts.plantilladash.plantilla')

@@ -1,0 +1,3 @@
+Esta carpeta tiene todos los archivos relacionados a la plantilla del dashborad del usuario
+
+plantilla.blade.php -> es la plantilla principal
