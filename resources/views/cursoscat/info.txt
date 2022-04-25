@@ -1,0 +1,3 @@
+Esta carpeta contiene todos los archivos relacionados a los cursos
+
+indexcursos.blade.php -> El main de los cursos, donde vemos los cursos disponibles

@@ -42,7 +42,7 @@
         <ul>
           <li><a class="active" href="index.html">Inicio</a></li>
           <li><a href="about.html">Nosotros</a></li>
-          <li><a href="courses.html">Cursos</a></li>
+          <li><a href="{{url('/cursos')}}">Cursos</a></li>
           <li><a href="trainers.html">Profesores</a></li>
           <li><a href="events.html">Eventos</a></li>
           <li><a href="pricing.html">Precios</a></li>

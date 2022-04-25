@@ -1,2 +1,2 @@
-@extends('layouts.plantilladash.plantilla')
+este es el soporte jiji
 

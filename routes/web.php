@@ -20,7 +20,14 @@ Route::get('/', function () {
 Route::get('/soporte', function () {
     return view('soportecat.soporteindex');
 });
-
+//Ruta para ir a los cursos
+Route::get('/cursos', function () {
+    return view('cursoscat.indexcursos');
+});
+//Ruta para ir a la info de los cursos
+Route::get('/infocursos', function () {
+    return view('cursoscat.detallescursos');
+});
 
 //Rutas que requieren autentificacion
 Route::middleware([
