@@ -1,3 +1,4 @@
 Esta carpeta tiene todos los archivos relacionados a la plantilla del dashborad del usuario
 
 plantilla.blade.php -> es la plantilla principal
+vacia.blade.php -> Contiene solameente el header y footer para poner lo que se quiera en el cuerpo o main

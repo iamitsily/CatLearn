@@ -43,9 +43,9 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="active" href="{{url('/')}}">INICIO</a></li>
-          <li><a href="about.html">Nosotros</a></li> <!-- PENDIENTE -->
+          <li><a href="{{url('/contacto')}}">Nosotros</a></li> <!-- PENDIENTE -->
           <li><a href="{{url('/cursos')}}">Cursos</a></li>
-          <li><a href="trainers.html">Profesores</a></li> <!-- PENDIENTE -->
+          <li><a href="{{url('/docentes')}}">Profesores</a></li> <!-- PENDIENTE -->
           <li><a href="{{url('/soporte')}}">Soporte</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

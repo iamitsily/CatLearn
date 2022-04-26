@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Panel Aadministrador')
+@section('title', 'CatLearn Panel')
 
 @section('content_header')
     <h1>Aadministrador</h1>

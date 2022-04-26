@@ -32,6 +32,14 @@ Route::get('/infocursos', function () {
 Route::get('/micurso', function () {
     return view('cursoscat.cursostop');
 });
+//Ruta para ir a contacto
+Route::get('/contacto', function () {
+    return view('dashcat.contacto');
+});
+//Ruta para ir a docentes
+Route::get('/docentes', function () {
+    return view('dashcat.docentes');
+});
 //Rutas que requieren autentificacion
 Route::middleware([
     'auth:sanctum',
