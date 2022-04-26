@@ -28,7 +28,10 @@ Route::get('/cursos', function () {
 Route::get('/infocursos', function () {
     return view('cursoscat.detallescursos');
 });
-
+//Ruta para ir a continuar un curso
+Route::get('/micurso', function () {
+    return view('cursoscat.cursostop');
+});
 //Rutas que requieren autentificacion
 Route::middleware([
     'auth:sanctum',

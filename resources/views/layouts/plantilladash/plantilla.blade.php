@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-		<meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>CatLearn</title>
- 
+
   <!-- Favicons -->
-  <link href="{ asset('!! asset('img/favicon.png') !!) }" rel="icon"  type="image/x-icon">
+  <link href="{ asset('!! asset('img/favicon.png') !!) }" rel="icon" type="image/x-icon">
   <link href="{{asset('img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -27,10 +28,11 @@
 
   <!-- Template Main CSS File -->
   <link href="{{asset('css/style.css')}}" rel="stylesheet">
-</title>
+  </title>
 </head>
+
 <body>
-	 <!-- ======= Header ======= -->
+  <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
@@ -40,53 +42,52 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="active" href="index.html">Inicio</a></li>
-          <li><a href="about.html">Nosotros</a></li>
+          <li><a class="active" href="{{url('/')}}">INICIO</a></li>
+          <li><a href="about.html">Nosotros</a></li> <!-- PENDIENTE -->
           <li><a href="{{url('/cursos')}}">Cursos</a></li>
-          <li><a href="trainers.html">Profesores</a></li>
-          <li><a href="events.html">Eventos</a></li>
-          <li><a href="pricing.html">Precios</a></li>
-          <li><a href="{{url('/soporte')}}">Contacto</a></li>
+          <li><a href="trainers.html">Profesores</a></li> <!-- PENDIENTE -->
+          <li><a href="{{url('/soporte')}}">Soporte</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="courses.html" class="get-started-btn">Inscribirse</a>
+      <a href="courses.html" class="get-started-btn">Iniciar Sesion</a>
+      <a href="courses.html" class="get-started-btn">Registro</a>
     </div>
   </header><!-- End Header -->
 
 
-   <!-- ======= Hero Section ======= -->
+  <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex justify-content-center align-items-center">
     <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-      <h1>Learning Today,<br>Leading Tomorrow</h1>
-      <h2>We are team of talented designers making websites with Bootstrap</h2>
-      <a href="courses.html" class="btn-get-started">Get Started</a>
+      <h1>Por aprender mejor,<br>Para aprender más!</h1>
+      <h2>Somos una plataforma de aprendizaje, dedicada a prestar información de calidad para ti y todos nuestros usuarios.</h2>
+      <a href="courses.html" class="btn-get-started">Iniciemos!</a>
     </div>
   </section><!-- End Hero -->
 
-    <main id="main">
- <!-- ======= About Section ======= -->
+  <main id="main">
+    <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
 
         <div class="row">
           <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-            <img src="assets/img/about.jpg" class="img-fluid" alt="">
+            <img src="{{asset('img/about.jpg')}}" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+            <h3>¿Qué es CatLearn?</h3>
             <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+              CatLearn es una plataforma educativa desarrollada para el ambito educativo y tiene como objetivo
+              ayudar al desarrollo academico de alumnos universitarios.
             </p>
             <ul>
-              <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-              <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-              <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+              <li><i class="bi bi-check-circle"></i> Disponible 24/7 los 365 días del año.</li>
+              <li><i class="bi bi-check-circle"></i> Por cada lección terminada, nosotros plantamos un arbolito.</li>
+              <li><i class="bi bi-check-circle"></i> Una plataforma sin fines de lucro.</li>
             </ul>
             <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+              CatLearn te ayudara en distintas materias, con material didactico, ya sea tutoriales, material de lectura,Mapas,Infogrfias etc.
             </p>
 
           </div>
@@ -95,20 +96,20 @@
       </div>
     </section><!-- End About Section -->
 
-        <!-- ======= Why Us Section ======= -->
+    <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us">
       <div class="container" data-aos="fade-up">
 
         <div class="row">
           <div class="col-lg-4 d-flex align-items-stretch">
             <div class="content">
-              <h3>Why Choose Mentor?</h3>
+              <h3>¿Por Que deberias elegirnos?</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
+                Como ya has visto al ser una plataforma educativa contamos con un monton de recursos educativos de distintas materias, tambien podras descargar nuestro material para cuando no tengas conexion a
+                internet, contamos tambien con actividades para reforzar lo aprendido. Puedes ingresar como estudiante o como maestro.
               </p>
               <div class="text-center">
-                <a href="about.html" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+                <a href="{{url('/contacto')}}" class="more-btn">Para mas informacion <i class="bx bx-chevron-right"></i></a>
               </div>
             </div>
           </div>
@@ -118,22 +119,22 @@
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bx-receipt"></i>
-                    <h4>Corporis voluptates sit</h4>
-                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                    <h4>Para Estudiantes</h4>
+                    <p>Contamos con cursos de los cuales podras inscribirte a ellos y obtener miles de datos con respectos a ellas,esta y mas funciones podras explorar a unirte a nosotros.</p>
                   </div>
                 </div>
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bx-cube-alt"></i>
-                    <h4>Ullamco laboris ladore pan</h4>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                    <h4>Para Docentes</h4>
+                    <p>Podras crear cursos, agrgar material, actividades entre otros recursos didacticos para ayudarte a complementar tus temarios academicos.</p>
                   </div>
                 </div>
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bx-images"></i>
-                    <h4>Labore consequatur</h4>
-                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                    <h4>Sobre Nosotros</h4>
+                    <p>Somos un grupo de estudiantes interesados en ayudar a las futuras generaciones para facilitar su comprension en las materias que a ellos se les dificulte.</p>
                   </div>
                 </div>
               </div>
@@ -144,31 +145,31 @@
       </div>
     </section><!-- End Why Us Section -->
 
-       <!-- ======= Popular Courses Section ======= -->
+    <!-- ======= Popular Courses Section ======= -->
     <section id="popular-courses" class="courses">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Courses</h2>
-          <p>Popular Courses</p>
+          <h2>Cursos</h2>
+          <p>Cursos Populares</p>
         </div>
 
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="course-item">
-              <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
+              <img src="{{asset('img/course-1.jpg')}}" class="img-fluid" alt="...">
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4>Web Development</h4>
-                  <p class="price">$169</p>
+                  <h4>Programacion Declarativa</h4>
+                  <p class="price">Part1</p>
                 </div>
 
-                <h3><a href="course-details.html">Website Design</a></h3>
-                <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                <h3><a href="course-details.html">Introduccion</a></h3>
+                <p>¿Que es?¿Caracteristicas?¿En que entornos funciona?¿Como podemos emepezar?¿Que son los condicionales?¿Como funciona un condicional?¿Leyes Logicas? etc. </p>
                 <div class="trainer d-flex justify-content-between align-items-center">
                   <div class="trainer-profile d-flex align-items-center">
-                    <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
+                    <img src="{{asset('img/trainers/trainer-1.jpg')}}" class="img-fluid" alt="">
                     <span>Antonio</span>
                   </div>
                   <div class="trainer-rank d-flex align-items-center">
@@ -183,18 +184,18 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
             <div class="course-item">
-              <img src="assets/img/course-2.jpg" class="img-fluid" alt="...">
+              <img src="{{asset('img/course-2.jpg')}}" class="img-fluid" alt="...">
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4>Marketing</h4>
-                  <p class="price">$250</p>
+                  <h4>Formacion Democratica</h4>
+                  <p class="price">Nuevo</p>
                 </div>
 
-                <h3><a href="course-details.html">Search Engine Optimization</a></h3>
-                <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                <h3><a href="course-details.html">Politicas Publicas</a></h3>
+                <p>Las politicas publicas siempre llevan acabo un analisis de un problema de un entorno social, teniendo como respuesta un analisis de soluciones y cuantas de estas son factibles en sectores politicos,sociales,legales,ambientales y sobretodo presupuestal.</p>
                 <div class="trainer d-flex justify-content-between align-items-center">
                   <div class="trainer-profile d-flex align-items-center">
-                    <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
+                    <img src="{{asset('img/trainers/trainer-2.jpg')}}" class="img-fluid" alt="">
                     <span>Lana</span>
                   </div>
                   <div class="trainer-rank d-flex align-items-center">
@@ -209,18 +210,18 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
             <div class="course-item">
-              <img src="assets/img/course-3.jpg" class="img-fluid" alt="...">
+              <img src="{{asset('img/course-3.jpg')}}" class="img-fluid" alt="...">
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4>Content</h4>
-                  <p class="price">$180</p>
+                  <h4>Algebra Abstracta</h4>
+                  <p class="price">Bloque 1</p>
                 </div>
 
-                <h3><a href="course-details.html">Copywriting</a></h3>
-                <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                <h3><a href="course-details.html">Matriz Inversa</a></h3>
+                <p>Podraz ver ejemplos de matrices unversas ya sea de 2x2 o 3x3, ver videos tutoriales y temas de lectura actualizados sobre mejores metodos de resolucion.</p>
                 <div class="trainer d-flex justify-content-between align-items-center">
                   <div class="trainer-profile d-flex align-items-center">
-                    <img src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
+                    <img src="{{asset('img/trainers/trainer-3.jpg')}}" class="img-fluid" alt="">
                     <span>Brandon</span>
                   </div>
                   <div class="trainer-rank d-flex align-items-center">
@@ -245,57 +246,41 @@
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
-              <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
+              <img src="{{asset('img/trainers/trainer-1.jpg')}}" class="img-fluid" alt="">
               <div class="member-content">
                 <h4>Walter White</h4>
-                <span>Web Development</span>
+                <span>Desarrollo Web</span>
                 <p>
-                  Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
+                  Master en Desarrollo Web, especialidad en JS y CSS.
                 </p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
+
               </div>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
-              <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
+              <img src="{{asset('img/trainers/trainer-2.jpg')}}" class="img-fluid" alt="">
               <div class="member-content">
                 <h4>Sarah Jhinson</h4>
                 <span>Marketing</span>
                 <p>
-                  Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
+                  Especialidad en marketing digital, mediante uso de redes sociales
                 </p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
+
               </div>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
-              <img src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
+              <img src="{{asset('img/trainers/trainer-3.jpg')}}" class="img-fluid" alt="">
               <div class="member-content">
                 <h4>William Anderson</h4>
-                <span>Content</span>
+                <span>Contenidos</span>
                 <p>
-                  Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
+                  Doctorado en creación de contenido para web.
                 </p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
               </div>
             </div>
           </div>
@@ -304,9 +289,9 @@
 
       </div>
     </section><!-- End Trainers Section -->
-    </main>
+  </main>
 
-    <!-- ======= Footer ======= -->
+  <!-- ======= Footer ======= -->
   <footer id="footer">
 
     <div class="footer-top">
@@ -314,43 +299,41 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Mentor</h3>
+            <h3>CatLearn</h3>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+              UATx <br>
+              Ingenieria en Computación<br>
+              Mexico <br><br>
+              <strong>Phone:</strong> S/N<br>
+              <strong>Email:</strong> contact@catlearn.com<br>
             </p>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Links Utiles</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{url('/')}}">Inicio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{url('/contacto')}}"></a>Contacto</li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{url('/soporte')}}">Soporte</a></li>
+             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
+            <h4>Quizá quieras ver</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Diseño web</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Desarrollo web</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Gestion de productos</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Diseño grafio</a></li>
             </ul>
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <h4>Suscribete a nuestro servicio de correo</h4>
+            <p>Para recibir notificaciones de nuevos cursos o avisos importantes.</p>
             <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+              <input type="email" name="email"><input type="submit" value="Suscribete">
             </form>
           </div>
 
@@ -362,14 +345,10 @@
 
       <div class="me-md-auto text-center text-md-start">
         <div class="copyright">
-          &copy; Copyright <strong><span>Mentor</span></strong>. All Rights Reserved
+          &copy; Copyright <strong><span>CatLearn</span></strong>.Todos los Derechos Reservados.
         </div>
         <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/ -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+         
         </div>
       </div>
       <div class="social-links text-center text-md-right pt-3 pt-md-0">
@@ -385,7 +364,7 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 
-    <!-- Vendor JS Files -->
+  <!-- Vendor JS Files -->
   <script src="{{asset('vendor/purecounter/purecounter.js')}}" defer></script>
   <script src="{{asset('vendor/aos/aos.js')}}" defer></script>
   <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}" defer></script>
@@ -395,4 +374,5 @@
   <!-- Template Main JS File -->
   <script src="{{asset('js/main.js')}}" defer></script>
 </body>
+
 </html>

@@ -28,6 +28,8 @@
 
     <!-- Template Main CSS File -->
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('css/cont.css')}}" rel="stylesheet" />
+
     </title>
 </head>
 
@@ -59,56 +61,55 @@
 
     <main id="main">
 
-        <!-- ======= Breadcrumbs ======= -->
-        <div class="breadcrumbs" data-aos="fade-in">
-            <div class="container">
-                <h2>Course Details</h2>
-                <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p>
+        
+        <!-- Page Content-->
+        <div class="container px-4 px-lg-5">
+            <!-- Heading Row-->
+            <div class="row gx-4 gx-lg-5 align-items-center my-5">
+                <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg" alt="..." /></div>
+                <div class="col-lg-5">
+                    <br><br>
+                    <h1 class="font-weight-light">Informatica</h1>
+                    <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!</p>
+                    <a class="btn btn-primary" href="#!">Call to Action!</a>
+                </div>
             </div>
-        </div><!-- End Breadcrumbs -->
-
-        <!-- ======= Cource Details Section ======= -->
-        <section id="course-details" class="course-details">
-            <div class="container" data-aos="fade-up">
-
-                <div class="row">
-                    <div class="col-lg-8">
-                        <img src="{{asset('img/course-details.jpg')}}" class="img-fluid" alt="">
-                        <h3>Et enim incidunt fuga tempora</h3>
-                        <p>
-                            Qui et explicabo voluptatem et ab qui vero et voluptas. Sint voluptates temporibus quam autem. Atque nostrum voluptatum laudantium a doloremque enim et ut dicta. Nostrum ducimus est iure minima totam doloribus nisi ullam deserunt. Corporis aut officiis sit nihil est. Labore aut sapiente aperiam.
-                            Qui voluptas qui vero ipsum ea voluptatem. Omnis et est. Voluptatem officia voluptatem adipisci et iusto provident doloremque consequatur. Quia et porro est. Et qui corrupti laudantium ipsa.
-                            Eum quasi saepe aperiam qui delectus quaerat in. Vitae mollitia ipsa quam. Ipsa aut qui numquam eum iste est dolorum. Rem voluptas ut sit ut.
-                        </p>
-                    </div>
-                    <div class="col-lg-4">
-
-                        <div class="course-info d-flex justify-content-between align-items-center">
-                            <h5>Trainer</h5>
-                            <p><a href="#">Walter White</a></p>
+            <!-- Call to Action-->
+            <div class="card text-white bg-secondary my-5 py-4 text-center">
+                <div class="card-body"><p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p></div>
+            </div>
+            <!-- Content Row-->
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Card One</h2>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
                         </div>
-
-                        <div class="course-info d-flex justify-content-between align-items-center">
-                            <h5>Course Fee</h5>
-                            <p>$165</p>
-                        </div>
-
-                        <div class="course-info d-flex justify-content-between align-items-center">
-                            <h5>Available Seats</h5>
-                            <p>30</p>
-                        </div>
-
-                        <div class="course-info d-flex justify-content-between align-items-center">
-                            <h5>Schedule</h5>
-                            <p>5.00 pm - 7.00 pm</p>
-                        </div>
-                        <a href="{{url('/micurso')}}" class="get-started-btn">Inscribirse</a>
-    
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
                     </div>
                 </div>
-
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Card Two</h2>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tenetur ex natus at dolorem enim! Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id dolore voluptates quos eligendi labore.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Card Three</h2>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+                    </div>
+                </div>
             </div>
-        </section><!-- End Cource Details Section -->
+        </div>
+
     </main>
 
     <!-- ======= Footer ======= -->
@@ -199,6 +200,10 @@
 
     <!-- Template Main JS File -->
     <script src="{{asset('js/main.js')}}" defer></script>
+      <!-- Bootstrap core JS-->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{{asset('js/scripts.js')}}"></script>
 </body>
 
 </html>
