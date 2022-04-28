@@ -241,7 +241,7 @@ return [
         ],
         [
             'text'        => 'Cursos',
-            'url'         => 'admin/cursos',
+            'url'         => '/admin/cursos',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',

@@ -52,4 +52,12 @@ Route::middleware([
     Route::get('/admin', function () {
         return view('dash.index');
     })->name('dash');
+    Route::get('/admin/cursos', function () {
+        return view('dash.cursosdash');
+    })->name('cursos');
+    Route::get('/admin/cursos/nuevo', function () {
+        return view('dash.nuevocurso');
+    })->name('cursos');
+    
+    
 });
