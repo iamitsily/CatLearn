@@ -8,26 +8,26 @@
 
 @section('content')
 <p>Añadir Curso</p>
-<form class="form-inline" action="{{url('insert.php')}}" method="POST">
+<form class="form-inline" action="insert.php" method="POST">
   <div class="form-group mb-2">
     <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Id Curso">
   </div>
   <div class="form-group mx-sm-3 mb-2">
-    <input type="password" class="form-control" id="id" placeholder="Id Curso" name="Id">
+    <input type="text" class="form-control" id="id" placeholder="Id Curso" name="Id">
   </div>
 
   <div class="form-group mb-2">
     <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Nombre">
   </div>
   <div class="form-group mx-sm-3 mb-2">
-    <input type="password" class="form-control" id="nombre" placeholder="Nombre" name="nombre">
+    <input type="text" class="form-control" id="nombre" placeholder="Nombre" name="nombre">
   </div>
 
   <div class="form-group mb-2">
     <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Descripción">
   </div>
   <div class="form-group mx-sm-3 mb-2">
-    <input type="password" class="form-control" id="descripcion" placeholder="Descripción" name="descripcion">
+    <input type="text" class="form-control" id="descripcion" placeholder="Descripción" name="descripcion">
   </div>
 
   <div class="form-group mb-2">
@@ -41,28 +41,28 @@
     <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Imagen">
   </div>
   <div class="form-group mx-sm-3 mb-2">
-    <input type="password" class="form-control" id="imagen" placeholder="Seleccionar Archivo" name="imagen">
+    <input type="text" class="form-control" id="imagen" placeholder="Seleccionar Archivo" name="imagen">
   </div>
 
   <div class="form-group mb-2">
     <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Docente">
   </div>
   <div class="form-group mx-sm-3 mb-2">
-    <input type="password" class="form-control" id="docente" placeholder="Docente" name="docente">
+    <input type="text" class="form-control" id="docente" placeholder="Docente" name="docente">
   </div>
 
   <div class="form-group mb-2">
     <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Participantes">
   </div>
   <div class="form-group mx-sm-3 mb-2">
-    <input type="password" class="form-control" id="participantes" placeholder="Participantes" name="participante">
+    <input type="text" class="form-control" id="participantes" placeholder="Participantes" name="participante">
   </div>
 
   <div class="form-group mb-2">
     <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Like">
   </div>
   <div class="form-group mx-sm-3 mb-2">
-    <input type="password" class="form-control" id="like" placeholder="Like" name="like">
+    <input type="text" class="form-control" id="like" placeholder="Like" name="like">
   </div>
   <button type="submit" class="btn btn-primary mb-2">Añadir curso</button>
 </form>

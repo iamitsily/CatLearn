@@ -9,7 +9,7 @@
 @section('content')
 <p>Cursos Existentes</p>
 <?php
-    $conexion=mysqli_connect('localhost','root','','catlearn');
+    $conexion=mysqli_connect('localhost:2526','root','','catlearn');
 ?>
 <table class="table">
     <thead>
@@ -33,12 +33,11 @@
             ?>
    
         <tr>
-            <th scope="row">1</th>
             <td><?php echo $mostrar['id_curso'] ?></td>
             <td><?php echo $mostrar['nombre'] ?></td>
             <td><?php echo $mostrar['descripcion'] ?></td>
             <td><?php echo $mostrar['categoria'] ?></td>
-            <td><?php echo $mostrar['imagen'] ?></td>
+           <!--  COLOCAR IMAGENES DENTRO DEL PHP <img src>  --> <td><?php echo $mostrar['imagen'] ?></td>
             <td><?php echo $mostrar['docente'] ?></td>
             <td><?php echo $mostrar['participante'] ?>
             <td><?php echo $mostrar['gusta'] ?>
