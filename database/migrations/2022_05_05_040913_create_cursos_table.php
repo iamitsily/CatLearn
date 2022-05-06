@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('docente',50);
             $table->integer('participante');
             $table->integer('gusta');
+            $table->string('imagen');
             $table->timestamps();
         });
     }

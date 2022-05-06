@@ -40,6 +40,14 @@
     <label for="" class="form-label">Likes</label>
     <input id="gusta" name="gusta" type="number" class="form-control" tabindex="6" value="{{$curso->gusta}}">
 </div>
+<div>
+        <label for="" class="form-label">Imagen</label><br>
+        <img id="imgSelect" style="max-height: 300px;" src="/img/cursos/{{$curso->imagen}}"><br><br>
+    </div>
+    <div class="mb-3">
+        <input id="img" name="img" type="file" class="hidden" tabindex="6">
+    </div>
+
 <br>    
 <a href="{{url('admin/cursos')}}" class="btn btn-secondary" tabindex="5">CANCELAR</a>
 <button type="submit" class="btn btn-primary" tabindex="4">GUARDAR</button>
@@ -53,5 +61,16 @@
 @section('js')
 <script>
     console.log('Hi!');
+</script>
+<script>
+    $(document).ready(function(e) {
+        $('#img').change(function() {
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                $('#imgSelect').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+        });
+    });
 </script>
 @stop

@@ -36,6 +36,9 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre'=>'required','descripcion'=>'required','categoria'=>'required','img'=>'required|image|mimes:jpeg,png,svg|max:2048'
+        ]);
         $cursos = new Curso();
         $cursos->nombre = $request->get('nombre');
         $cursos->descripcion = $request->get('descripcion');
@@ -43,6 +46,13 @@ class CursoController extends Controller
         $cursos->docente = $request->get('docente');
         $cursos->participante = $request->get('participantes');
         $cursos->gusta = $request->get('gusta');
+        
+        if($imagen = $request->file('img')){
+            $rutaGuardar = 'img/cursos/';
+            $imgCurso = date('YmdHis').".".$imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardar,$imgCurso);
+            $cursos['imagen'] = $imgCurso;
+        }
         
         $cursos->save();
 
@@ -82,6 +92,7 @@ class CursoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $curso = Curso::find($id);
         $curso->nombre = $request->get('nombre');
         $curso->descripcion = $request->get('descripcion');
@@ -90,6 +101,12 @@ class CursoController extends Controller
         $curso->participante = $request->get('participantes');
         $curso->gusta = $request->get('gusta');
         
+        if($imagen = $request->file('img')){
+            $rutaGuardar = 'img/cursos/';
+            $imgCurso = date('YmdHis').".".$imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardar,$imgCurso);
+            $curso['imagen'] = $imgCurso;
+        }
         $curso->save();
 
         return redirect("admin/cursos");
