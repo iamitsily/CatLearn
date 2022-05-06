@@ -52,12 +52,18 @@ Route::middleware([
     Route::get('/admin', function () {
         return view('dash.index');
     })->name('dash');
-    Route::get('/admin/cursos', function () {
+
+    /*Route::get('/admin/cursos', function () {
         return view('dash.cursosdash');
-    })->name('cursos');
+    })->name('cursos');*/
     Route::get('/admin/cursos/nuevo', function () {
         return view('dash.nuevocurso');
-    })->name('cursos');
-    
+    })->name('cursosnuevo');
+    Route::get('/admin/cursos/editar', function () {
+        return view('dash.editarcurso');
+    })->name('cursoseditar');
+
+    //Regresar vista crud del controlador de los cursos
+    Route::resource('/admin/cursos','App\Http\Controllers\CursoController');
     
 });

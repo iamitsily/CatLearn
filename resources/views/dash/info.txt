@@ -1,3 +1,6 @@
 Esta carpeta contiene todos los archivos relacionados con AdminLTE y la parte de administrador
 
 index.blade.php -> Pagina principal del panel de administrador
+cursodash.blade.php -> Mostrar el CRUD de los cursos general
+nuevocurso.blade.php -> Crea nuevo curso
+editarcurso.blade.php -> Editar los cursos
