@@ -243,7 +243,7 @@ return [
             'text'        => 'Cursos',
             'url'         => '/admin/cursos',
             'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
+            'label'       => 'CRUD',
             'label_color' => 'success',
         ],
         ['header' => 'Configuración de Usuarios'],
@@ -255,6 +255,7 @@ return [
         [
             'text' => 'Usuarios',
             'url'  => 'admin/settings',
+            'label' => 'CURD',
             'icon' => 'fas fa-fw fa-lock',
         ],
        

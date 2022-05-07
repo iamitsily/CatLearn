@@ -40,6 +40,8 @@ Route::get('/contacto', function () {
 Route::get('/docentes', function () {
     return view('dashcat.docentes');
 });
+
+
 //Rutas que requieren autentificacion
 Route::middleware([
     'auth:sanctum',
