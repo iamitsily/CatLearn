@@ -1,4 +1,4 @@
-@extends('layouts.plantillacursos.cursos')
+@extends('generales.plantillacursos.cursos')
 
 @section('content')
 

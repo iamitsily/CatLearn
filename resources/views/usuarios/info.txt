@@ -1,0 +1,3 @@
+Una vez pasado el login, se mostraran estas interfaces, que seran las de los usuarios
+
+home.blade.php -> Home del usuario con información relevante a este

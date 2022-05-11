@@ -1,0 +1,4 @@
+En esta carpeta guardamos las vistas del login y el registro
+
+iniciosesion.blade.php -> Vista del login
+registro.blade.php -> Vista del registro

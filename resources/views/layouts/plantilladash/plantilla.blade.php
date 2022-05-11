@@ -51,8 +51,8 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="courses.html" class="get-started-btn">Iniciar Sesion</a>
-      <a href="courses.html" class="get-started-btn">Registro</a>
+      <a href="{{url('/sesion')}}" class="get-started-btn">Iniciar Sesion</a>
+      <a href="{{url('/registro')}}" class="get-started-btn">Registro</a>
     </div>
   </header><!-- End Header -->
 
@@ -62,7 +62,7 @@
     <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
       <h1>Por aprender mejor,<br>Para aprender más!</h1>
       <h2>Somos una plataforma de aprendizaje, dedicada a prestar información de calidad para ti y todos nuestros usuarios.</h2>
-      <a href="courses.html" class="btn-get-started">Iniciemos!</a>
+      <a href="{{url('/cursos')}}" class="btn-get-started">Iniciemos!</a>
     </div>
   </section><!-- End Hero -->
 

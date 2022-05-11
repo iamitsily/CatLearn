@@ -2,6 +2,8 @@
 
 //Librerias
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegistroController;
+use App\Http\Controllers\SesionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 //Ruta principal, lo que se despliega al inicio de la pagina
 Route::get('/', function () {
-    return view('dashcat.index');
+    return view('generales.dashcat.index');
 });
 //Ruta para ir al modulo de soporte
 Route::get('/soporte', function () {
@@ -22,27 +24,39 @@ Route::get('/soporte', function () {
 });
 //Ruta para ir a los cursos
 Route::get('/cursos', function () {
-    return view('cursoscat.indexcursos');
+    return view('generales.cursoscat.indexcursos');
 });
 //Ruta para ir a la info de los cursos
 Route::get('/infocursos', function () {
-    return view('cursoscat.detallescursos');
+    return view('generales.cursoscat.detallescursos');
 });
 //Ruta para ir a continuar un curso
 Route::get('/micurso', function () {
-    return view('cursoscat.cursostop');
+    return view('generales.cursoscat.cursostop');
 });
 //Ruta para ir a contacto
 Route::get('/contacto', function () {
-    return view('dashcat.contacto');
+    return view('generales.dashcat.contacto');
 });
 //Ruta para ir a docentes
 Route::get('/docentes', function () {
-    return view('dashcat.docentes');
+    return view('generales.dashcat.docentes');
+});
+
+//Rutas para login y registro para usuarios y docentes
+//Login
+Route::get('/sesion',[SesionController::class,'create'])->name('sesion.index');
+Route::get('/registro',[RegistroController::class,'create'])->name('registro.index');
+
+
+//Una vez logeados views del ususario
+//Home
+Route::get('/home', function () {
+    return view('usuarios.home');
 });
 
 
-//Rutas que requieren autentificacion
+//Rutas que requieren autentificacion para administrador
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
