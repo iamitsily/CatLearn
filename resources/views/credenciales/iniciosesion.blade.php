@@ -8,8 +8,7 @@
 
 @endsection
 @section('content')
-<div class="breadcrumbs">
-</div>
+
 <section class="ftco-section">
 		<div class="container">
 			
@@ -24,16 +23,20 @@
 			      		</div>
 							
 			      	</div>
-							<form action="#" class="signin-form">
+							<form action="" method="POST" class="signin-form">
+								@csrf
 			      		<div class="form-group mt-3">
-			      			<input type="text" class="form-control" required>
-			      			<label class="form-control-placeholder" for="username">Usuario</label>
+			      			<input type="text" id="email" name="email" class="form-control" required>
+			      			<label class="form-control-placeholder" for="username">Email</label>
 			      		</div>
 		            <div class="form-group">
-		              <input id="password-field" type="password" class="form-control" required>
+		              <input id="password" name="password" type="password" class="form-control" required>
 		              <label class="form-control-placeholder" for="password">Contraseña</label>
 		              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 		            </div>
+					@error('message')
+					<p class="mb-4	text-danger">{{$message}}</p>
+					@enderror
 		            <div class="form-group">
 		            	<button type="submit" class="form-control btn btn-primary rounded submit px-3">Vamos!   </button>
 		            </div>

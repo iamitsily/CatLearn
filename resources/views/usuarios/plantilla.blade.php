@@ -43,6 +43,17 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="active" href="{{url('/')}}">INICIO</a></li>
+          @if(auth()->check())
+          <li class="dropdown"><a href="#"><span>{{auth()->user()->name}}</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Mi Perfil</a></li>
+              <li><a href="#">Mis Cursos</a></li>
+              <li><a href="{{route('sesion.destroy')}}">Cerrar Sesión</a></li>
+            </ul>
+          </li>
+      @else
+    
+      @endif
           
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

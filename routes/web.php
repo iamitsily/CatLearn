@@ -46,15 +46,18 @@ Route::get('/docentes', function () {
 //Rutas para login y registro para usuarios y docentes
 //Login
 Route::get('/sesion',[SesionController::class,'create'])->name('sesion.index');
+Route::post('/sesion',[SesionController::class,'store'])->name('sesion.store');
+Route::get('/logout',[SesionController::class,'destroy'])->name('sesion.destroy');
+
 Route::get('/registro',[RegistroController::class,'create'])->name('registro.index');
+Route::post('/registro',[RegistroController::class,'store'])->name('registro.store');
 
 
 //Una vez logeados views del ususario
 //Home
 Route::get('/home', function () {
     return view('usuarios.home');
-});
-
+})->middleware('auth');
 
 //Rutas que requieren autentificacion para administrador
 Route::middleware([
