@@ -51,8 +51,8 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="courses.html" class="get-started-btn">Iniciar Sesion</a>
-      <a href="courses.html" class="get-started-btn">Registro</a>
+      <a href="{{url('/sesion')}}" class="get-started-btn">Iniciar Sesion</a>
+      <a href="{{url('/registro')}}" class="get-started-btn">Registro</a>
     </div>
   </header><!-- End Header -->
 

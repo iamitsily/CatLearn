@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 //Ruta para ir al modulo de soporte
 Route::get('/soporte', function () {
-    return view('soportecat.soporteindex');
+    return view('layouts.soportecat.soporteindex');
 });
 //Ruta para ir a los cursos
 Route::get('/cursos', function () {
