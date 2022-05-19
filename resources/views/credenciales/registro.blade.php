@@ -38,11 +38,19 @@
 							@error('user')
 							<p class="mb-4	text-danger">{{$message}}</p>
 							@enderror
+							
 							<div class="form-group mt-3">
 								<input type="email" id="email" name="email" class="form-control" required>
 								<label class="form-control-placeholder" for="username">Email</label>
 							</div>
 							@error('email')
+							<p class="mb-4	text-danger">{{$message}}</p>
+							@enderror
+							<div class="form-group mt-3">
+								<input type="number" id="number" name="number" class="form-control" required>
+								<label class="form-control-placeholder" for="username">Telefono</label>
+							</div>
+							@error('number')
 							<p class="mb-4	text-danger">{{$message}}</p>
 							@enderror
 							<div class="form-group">
@@ -53,12 +61,7 @@
 							@error('password')
 							<p class="mb-4	text-danger">{{$message}}</p>
 							@enderror
-							<div class="form-group">
-								<input type="password" class="form-control" required>
-								<label class="form-control-placeholder" for="password">Confirmar Contraseña</label>
-								<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-							</div>
-
+						
 							<div class="form-group">
 								<button type="submit" class="form-control btn btn-primary rounded submit px-3">Vamos! </button>
 							</div>

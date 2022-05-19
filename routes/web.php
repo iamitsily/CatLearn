@@ -79,8 +79,17 @@ Route::middleware([
     Route::get('/admin/cursos/editar', function () {
         return view('dash.editarcurso');
     })->name('cursoseditar');
- 
+
+    Route::get('/admin/usuarios/nuevo', function () {
+        return view('dash.cruduser.nuevouser');
+    })->name('usernuevo');
+    Route::get('/admin/usuarios/editar', function () {
+        return view('dash.cruduser.editaruser');
+    })->name('usereditar');
+    
     //Regresar vista crud del controlador de los cursos
     Route::resource('/admin/cursos','App\Http\Controllers\CursoController');
+    //Regresar vista crud del controlador de los Usuarios
+    Route::resource('/admin/settings','App\Http\Controllers\UserController');
     
 });

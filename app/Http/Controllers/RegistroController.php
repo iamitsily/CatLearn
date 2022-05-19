@@ -20,10 +20,11 @@ class RegistroController extends Controller
             'name' => 'required',
             'user' => 'required',
             'email' => 'required|email',
-            'password' => 'required|confirmed',
+            'number'=> 'required',
+            'password' => 'required',
         ]);
 
-        $user = User::create(request(['name','user','email','password']));
+        $user = User::create(request(['name','user','email','number','password']));
 
         auth()->login($user);
         return redirect("/home");    }
