@@ -37,26 +37,18 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre'=>'required','descripcion'=>'required','categoria'=>'required','img'=>'required|image|mimes:jpeg,png,svg|max:2048'
+            'nombre'=>'required','telefono'=>'required','idrol'=>'required','email'=>'required','password'=>'required'
         ]);
-        $cursos = new User();
-        $cursos->nombre = $request->get('nombre');
-        $cursos->descripcion = $request->get('descripcion');
-        $cursos->categoria = $request->get('categoria');
-        $cursos->docente = $request->get('docente');
-        $cursos->participante = $request->get('participantes');
-        $cursos->gusta = $request->get('gusta');
-        
-        if($imagen = $request->file('img')){
-            $rutaGuardar = 'img/cursos/';
-            $imgCurso = date('YmdHis').".".$imagen->getClientOriginalExtension();
-            $imagen->move($rutaGuardar,$imgCurso);
-            $cursos['imagen'] = $imgCurso;
-        }
-        
-        $cursos->save();
+        $User = new User();
+        $User->name = $request->get('nombre');
+        $User->number = $request->get('telefono');
+        $User->id_rol = $request->get('idrol');
+        $User->email= $request->get('email');
+        $User->password = $request->get('password');
+       
+        $User->save();
 
-        return redirect("admin/cursos");
+        return redirect("{{url('admin/settings')}}");
     }
 
     /**
