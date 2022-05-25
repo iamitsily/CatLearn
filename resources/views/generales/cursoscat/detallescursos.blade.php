@@ -1,1 +1,0 @@
-@extends('layouts.plantillacursos.infocursos')

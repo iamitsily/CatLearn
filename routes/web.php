@@ -4,7 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\SesionController;
-
+use App\Http\Controllers\CursoUserController;
 /*
 |--------------------------------------------------------------------------
 | Routas web
@@ -26,14 +26,7 @@ Route::get('/soporte', function () {
 Route::get('/cursos', function () {
     return view('generales.cursoscat.indexcursos');
 });
-//Ruta para ir a la info de los cursos
-Route::get('/infocursos', function () {
-    return view('generales.cursoscat.detallescursos');
-});
-//Ruta para ir a continuar un curso
-Route::get('/micurso', function () {
-    return view('generales.cursoscat.cursostop');
-});
+
 //Ruta para ir a contacto
 Route::get('/contacto', function () {
     return view('generales.dashcat.contacto');
@@ -55,10 +48,15 @@ Route::post('/registro',[RegistroController::class,'store'])->name('registro.sto
 
 //Una vez logeados views del ususario
 //Home
-Route::get('/home', function () {
-    return view('usuarios.home');
-})->middleware('auth');
+Route::get('/home', [CursoUserController::class,'index'])->middleware('auth')->name('CursoUser.index');
 
+//Ruta para ir a la info de los cursos
+Route::get('/infocursos{curso}',[CursoUserController::class,'show'])->name('CursoUser.Show');
+
+//Ruta para ir a continuar un curso
+Route::get('/micurso{curso}',[CursoUserController::class,'detalles'])->name('CursoUser.detalles');
+
+Route::get('/encuesta{encuesta}',[CursoUserController::class,'encuesta'])->name('CursoUser.encuesta');
 //Rutas que requieren autentificacion para administrador
 Route::middleware([
     'auth:sanctum',

@@ -25,7 +25,7 @@
                             <p class="price">$169</p>
                         </div>
 
-                        <h3><a href="{{url('/infocursos')}}">Website Design</a></h3>
+                        <h3><a href="{{url('/home')}}">Website Design</a></h3>
                         <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                         <div class="trainer d-flex justify-content-between align-items-center">
                             <div class="trainer-profile d-flex align-items-center">
@@ -51,7 +51,7 @@
                             <p class="price">$250</p>
                         </div>
 
-                        <h3><a href="course-details.html">Search Engine Optimization</a></h3>
+                        <h3><a href="{{url('/home')}}">Search Engine Optimization</a></h3>
                         <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                         <div class="trainer d-flex justify-content-between align-items-center">
                             <div class="trainer-profile d-flex align-items-center">
@@ -77,7 +77,7 @@
                             <p class="price">$180</p>
                         </div>
 
-                        <h3><a href="course-details.html">Copywriting</a></h3>
+                        <h3><a href="{{url('/home')}}">Copywriting</a></h3>
                         <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                         <div class="trainer d-flex justify-content-between align-items-center">
                             <div class="trainer-profile d-flex align-items-center">

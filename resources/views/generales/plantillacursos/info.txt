@@ -1,4 +1,0 @@
-Esta carpeta tiene todos los archivos relacionados a la plantilla de cursos
-
-cursos.blade.php -> Navbar y footer de la pagina, con el content disponible a modificar
-infocursos.blade.php -> Contenido general al visualizar detalles de un curso

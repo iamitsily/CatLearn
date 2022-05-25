@@ -3,103 +3,89 @@
 @section('title','Casa')
 
 @section('content')
-<br><br>
-
-<!-- primera sección -->
-
-<section class="bg-cover" style="background-image: url='img/home/a.jpg'">
-
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-36">
-    <div class="w-full md:w-3/4 lg:w-1/2"> 
-    <h1 class="text-white font-fold text-4xl">Bienvenido A Catlearn </h1>
-    <p class="text-white text-lg mt-2 mb-4" >CatLearn plataforma de apredizaje</p>>
-
-        <!-- component -->
-    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.4/dist/flowbite.min.css" />
-
-     <div class="pt-2 relative mx-auto text-gray-600" autocomplete="off">
-            <input wire:model="search" class="w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
-            type="search" name="search" placeholder="Search">
-        <!-- si quieres ajustar el buscador solo borrar w-full jiji y abajo agustalo con mt :3 -->
-            <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded absolute right-0 top-0 mt-2">
-            Buscar
-            </button>
+<div class="breadcrumbs">
+    <div class="container">
+        <h2>Cursos Disponibles</h2>
+        <p>Descubre tu nuevo curso, estos estan disponibles para ti. Revisalos e inscribete! uwu</p>
     </div>
-
-    </div>
-
 </div>
-</section>
 
-<!-- Otra sección del home gap-x-6 -->
 
-<section class= "mt-24"> 
-    <h1 class="text-gray-600 text-center text-3xl mb-6 "> Contenidos </h1> 
 
-    <div  class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 gap-y-8">
 
-    <article>
-            <figure>
-             <img class= "rounded-xl h-36 w-full object-cover"src="{{asset('img/home/developer-g50748cf70_640.png')}} " alt="">
-            </figure>
+<section id="courses" class="courses">
+    <div class="container" data-aos="fade-up">
 
-            <header class="mt-2">
-                <h1 class="text-center text-xl gray-700">Desarrollo De Aplicaciones Web</h1>
-                <p class="text-sm text-center text-gray-500">Laravel hasta la cuna</p>
-            </header>
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+            @foreach ($cursos as $curso)
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
 
-        </article>
+                <div class="course-item">
+                    <img src="{{asset('img/course-1.jpg')}}" class="img-fluid" alt="...">
+                    <div class="course-content">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4>{{$curso->categoria}}</h4>
+                            <p class="price">Curso</p>
+                        </div>
 
-        <article>
-            <figure>
-                <img class= "rounded-xl h-36 w-full object-cover" src="{{asset('img/home/mathematics-g660646229_640.jpg')}}" alt="">
-            </figure>
+                        <h3><a href="{{route('CursoUser.Show',$curso)}}">{{$curso->nombre}}</a></h3>
+                        <p>{{$curso->descripcion}}</p>
+                        <div class="trainer d-flex justify-content-between align-items-center">
+                            <div class="trainer-profile d-flex align-items-center">
+                                <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
+                                <span>{{$curso->docente}}</span>
+                            </div>
+                            <div class="trainer-rank d-flex align-items-center">
+                                <i class="bx bx-user"></i>&nbsp;{{$curso->participante}}
+                                &nbsp;&nbsp;
+                                <i class="bx bx-heart"></i>&nbsp;{{$curso->gusta}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <header class="mt-2">
-                <h1 class="text-center text-xl gray-700">Ecuaciones Diferenciales</h1>
-                <p class="text-sm text-center text-gray-500">Las matematicas mueven al mundo</p>
-            </header>
+            </div> <!-- End Course Item-->
+            @endforeach
 
-        </article>
-
-        <article>
-            <figure>
-                <img class= "rounded-xl h-36 w-full object-cover" src="{{asset('img/home/web-g354528421_640.png')}}" alt="">
-            </figure>
-
-            <header class="mt-2">
-                <h1 class="text-center text-xl gray-700">Modelado De Base De Datos</h1>
-                <p class="text-sm text-center text-gray-500">Curso completo xd</p>
-            </header>
-        </article>
-
+        </div>
 
     </div>
-</section>
+</section><!-- End Courses Section -->
 
-<!-- Aparatado de ayuda-->
-
-<section class="mt-24 bg-gray-700 py-12">
-    <h1 class="text-center text-white text-3xl">¿Necesitas ayuda?</h1>
-    <p class="text-center text-white text"> contactanos: correo@pruebaxd.com</p>
-
-    <!-- Conectar en el a cuando este la seccion de cursos -->
-    <div class="flex justify-center mt-4">
-      <a href="" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-         Soporte
-      </a>
+<div class="breadcrumbs">
+    <div class="container">
+        <h2>Mis Cursos</h2>
+        <p>Continua desde lo dejaste, tus cursos en una sola sección</p>
     </div>
-</section>
+</div>
 
-<section class="my-24 ">
-    <h1 class="text-center text-3xl text-gray-600">Cursos Accedidos Recientemente </h1>
-    <p class="text-center text-gray-500 text-sm mb-6"> Catlearn la plataforma educativa mas buena que existe</p>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
-
-    AQUIIIIIIIII mostrar los cursos
+<div class="breadcrumbs">
+    <div class="container">
+        <h2>Encuestas Disponibles</h2>
+        <p>Tomate unos minutos para responder esta sencilla encuesta</p>
     </div>
-</section>
+</div>
 
+<section id="courses" class="courses">
+
+    <div class="container" data-aos="fade-up">
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+            @foreach($encuestas as $encuesta)
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{$encuesta->nombre}}</h5>
+                        <p class="card-text">{{$encuesta->descripcion}}</p>
+                        <a class="active" href="{{route('CursoUser.encuesta',$encuesta)}}">RESPONDER</a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+    </div> <!-- End Course Item-->
+    </div>
+    </div>
+</section><!-- End Courses Section -->
 
 @endsection
