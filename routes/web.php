@@ -66,11 +66,6 @@ Route::get('/micurso{curso}',[CursoUserController::class,'detalles'])->name('Cur
 Route::get('/encuesta{encuesta}',[CursoUserController::class,'encuesta'])->name('CursoUser.encuesta');
 
 
-//Ruta para generar encuestas
-Route::get('/nuevaencuesta',[EncuestaController::class,'index'])->name('encuesta.index');
-Route::post('/nuevaencuesta',[EncuestaController::class,'store'])->name('encuesta.store');
-
-
 //Rutas que requieren autentificacion para administrador
 Route::middleware([
     'auth:sanctum',
@@ -103,5 +98,9 @@ Route::middleware([
     Route::resource('/admin/cursos','App\Http\Controllers\CursoController');
     //Regresar vista crud del controlador de los Usuarios
     Route::resource('/admin/settings','App\Http\Controllers\UserController');
-    
+    //Encuesta
+    Route::get('/nuevaencuesta', [EncuestaController::class, 'index'])->name('encuesta.index');
+    Route::post('/nuevaencuesta',  [EncuestaController::class, 'store'])->name('encuesta.store');
+
+
 });

@@ -34,13 +34,9 @@ class EncuestaController extends Controller
      */
     public function store(Request $request)
     {
-        $encuesta = new Encuesta;
-        $encuesta->nombre=$request->input('nombre');
-        $encuesta->link=$request->input('link');
-        $encuesta->descripcion=$request->input('descripcion');
-        
+        $encuesta = new Encuesta($request->all());
         $encuesta->save();
-        return redirect("/home");
+        return redirect('/home');
     }
 
     /**
