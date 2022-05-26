@@ -15,16 +15,30 @@
 <form action="{{url('/admin/cursos')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="mb-3">
+        <label for="" class="form-label">Id User Encargado</label>
+        <input id="id_user" name="id_user" type="text" class="form-control" tabindex="1">
+    </div>
+    
+    <div class="mb-3">
         <label for="" class="form-label">Nombre</label>
         <input id="nombre" name="nombre" type="text" class="form-control" tabindex="1">
     </div>
     <div class="mb-3">
+        <label for="" class="form-label">Subtitulo</label>
+        <input id="subtitulo" name="subtitulo" type="text" class="form-control" tabindex="1">
+    </div>
+
+    <div class="mb-3">
         <label for="" class="form-label">Descripción</label>
-        <input id="descripcion" name="descripcion" type="text" class="form-control" tabindex="2">
+        <input id="descripcion" name="descripcion" type="textarea" class="form-control" tabindex="2">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Categoria</label>
-        <input id="categoria" name="categoria" type="number" class="form-control" tabindex="3">
+        <select name="categoria">
+            <option>Español</option>
+            <option>Matematicas</option>
+            <option>Programacion</option>
+        </select>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Docente</label>
@@ -44,6 +58,14 @@
     </div>
     <div class="mb-3">
         <input id="img" name="img" type="file" class="hidden" tabindex="6">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Fecha Inicio</label>
+        <input id="inicio" name="inicio" type="date" class="form-control" tabindex="1">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Fecha Fin</label>
+        <input id="fin" name="fin" type="date" class="form-control" tabindex="1">
     </div>
 
     <br>

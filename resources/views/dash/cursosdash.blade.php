@@ -14,16 +14,19 @@
 <a href="{{url('admin/cursos/nuevo')}}" class="btn btn-primary">CREAR CURSO</a>
 <br><br>
 <table class="table table-striped table-bordered shadow-lg mt-4" id="cursos" style="width:100%">
-    <thead class="bg-orange text-white">
+    <thead class="bg-green text-white">
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Nombre</th>
+            <th scope="col">Subtitulo</th>
             <th scope="col">Descripción</th>
             <th scope="col">Categoria</th>
             <th scope="col">Docente</th>
             <th scope="col">Participantes</th>
             <th scope="col">Likes</th>
             <th scope="col">Imagen</th>
+            <th scope="col">Inicio</th>
+            <th scope="col">Fin</th>
             <th scope="col">Opciones</th>
 
         </tr>
@@ -33,6 +36,7 @@
         <tr>
             <td>{{$curso->id}}</td>
             <td>{{$curso->nombre}}</td>
+            <td>{{$curso->subtitulo}}</td>
             <td>{{$curso->descripcion}}</td>
             <td>{{$curso->categoria}}</td>
             <td>{{$curso->docente}}</td>
@@ -41,6 +45,9 @@
             <td>
                 <img src="/img/cursos/{{$curso->imagen}}" width="100px" height="100px">
             </td>
+            <td>{{$curso->fecha_inicio}}</td>
+            <td>{{$curso->fecha_fin}}</td>
+            
             <td>
                 <form action="{{route ('cursos.destroy',$curso->id)}}" method="POST" class="formEliminar">
                     <a class="btn btn-info" href="/admin/cursos/{{$curso->id}}/edit">Editar</a>

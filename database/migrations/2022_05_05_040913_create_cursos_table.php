@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('nombre',50);
             $table->string('subtitulo',50);
             $table->text('descripcion',100);
-            $table->integer('categoria');
+            $table->string('categoria',20);
             $table->string('docente',50);
             $table->integer('participante');
             $table->integer('gusta');

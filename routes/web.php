@@ -48,6 +48,11 @@ Route::post('/registro',[RegistroController::class,'store'])->name('registro.sto
 
 //Una vez logeados views del ususario
 //Home
+//Mi perfil
+Route::get('/miperfil', function (){
+    return view('profile.show');
+});
+
 Route::get('/home', [CursoUserController::class,'index'])->middleware('auth')->name('CursoUser.index');
 
 //Ruta para ir a la info de los cursos

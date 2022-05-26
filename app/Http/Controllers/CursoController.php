@@ -36,17 +36,19 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nombre'=>'required','descripcion'=>'required','categoria'=>'required','img'=>'required|image|mimes:jpeg,png,svg|max:2048'
-        ]);
+        
         $cursos = new Curso();
+        $cursos->id_user = $request->get('id_user');
         $cursos->nombre = $request->get('nombre');
+        $cursos->subtitulo = $request->get('subtitulo');
         $cursos->descripcion = $request->get('descripcion');
         $cursos->categoria = $request->get('categoria');
         $cursos->docente = $request->get('docente');
         $cursos->participante = $request->get('participantes');
         $cursos->gusta = $request->get('gusta');
-        
+        $cursos->fecha_inicio = $request->get('inicio');
+        $cursos->fecha_fin= $request->get('fin');
+
         if($imagen = $request->file('img')){
             $rutaGuardar = 'img/cursos/';
             $imgCurso = date('YmdHis').".".$imagen->getClientOriginalExtension();

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'CatLearn Panel')
+@section('title', 'Usuarios')
 
 @section('content_header')
 <h1>Usuarios</h1>
