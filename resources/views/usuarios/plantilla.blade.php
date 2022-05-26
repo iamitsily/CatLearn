@@ -42,7 +42,13 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a href="{{route('profile.show')}}">Admin Cursos</a></li>
+          <li class="dropdown"><span>Docente</span> <i class="bi bi-chevron-down"></i>
+            <ul>
+              <li><a href="{{url('/miperfil')}}">Cursos</a></li>
+              <li><a href="{{route('encuesta.index')}}">Encuestas</a></li>
+              <li><a href="{{route('sesion.destroy')}}">Estadisticas</a></li>
+            </ul>
+          </li>
           <li><a href="{{url('/admin')}}">Administrador</a></li>
           @if(auth()->check())
           <li class="dropdown"><a href="#"><span>{{auth()->user()->name}}</span> <i class="bi bi-chevron-down"></i></a>

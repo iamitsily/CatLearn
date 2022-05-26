@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\SesionController;
 use App\Http\Controllers\CursoUserController;
+use App\Http\Controllers\EncuestaController;
 /*
 |--------------------------------------------------------------------------
 | Routas web
@@ -61,7 +62,15 @@ Route::get('/infocursos{curso}',[CursoUserController::class,'show'])->name('Curs
 //Ruta para ir a continuar un curso
 Route::get('/micurso{curso}',[CursoUserController::class,'detalles'])->name('CursoUser.detalles');
 
+//Ruta par mostrar las encuestas disponibles
 Route::get('/encuesta{encuesta}',[CursoUserController::class,'encuesta'])->name('CursoUser.encuesta');
+
+
+//Ruta para generar encuestas
+Route::get('/nuevaencuesta',[EncuestaController::class,'index'])->name('encuesta.index');
+Route::post('/nuevaencuesta',[EncuestaController::class,'store'])->name('encuesta.store');
+
+
 //Rutas que requieren autentificacion para administrador
 Route::middleware([
     'auth:sanctum',

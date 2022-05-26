@@ -24,4 +24,5 @@ class CursoUserController extends Controller
     public function encuesta(Encuesta $encuesta){
         return view('usuarios.encuesta',compact('encuesta'));
     }
+    
 }
