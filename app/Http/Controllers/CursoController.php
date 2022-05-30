@@ -58,7 +58,7 @@ class CursoController extends Controller
         
         $cursos->save();
 
-        return redirect("admin/cursos");
+        return redirect("admin/nuevocurso");
     }
    
     /**
@@ -124,7 +124,7 @@ class CursoController extends Controller
     {
         $curso = Curso::find($id);
         $curso->delete();
-        return redirect("admin/cursos");
+        return redirect("admin/nuevocurso");
 
     }
    

@@ -50,29 +50,52 @@
             
             <td>
                 <form action="{{route ('nuevocurso.destroy',$curso->id)}}" method="POST" class="formEliminar">
-                    <a class="btn btn-info" href="/admin/cursos/{{$curso->id}}/edit">Editar</a>
+                    <a class="btn btn-info" href="/admin/nuevocurso/{{$curso->id}}/edit">Editar</a>
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">Borrar</button>
                 </form>
             </td>
         </tr>
-        @endforeach
     </tbody>
+    @endforeach
 </table>
 @stop
 @section('css')
-<link rel="stylesheet" href="/css/admin_custom.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
 @stop
 
 @section('js')
 <script>
-    console.log('Hi!');
+    (function() {
+        'use strict'
+        var forms = document.querySelectorAll('.formEliminar')
+        Array.prototype.slice.call(forms)
+            .forEach(function(form) {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                    Swal.fire({
+                        title: '¿Confirma la eliminación del registro?',
+                        showCancelButton: true,
+                        confirmButtonColor: 'red',
+                        confirmButtonText: 'Confirmar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            this.submit();
+                            Swal.fire('Eliminado', 'Se elimino el curso', 'success');
+                        }else{
+                            console.log('no jalo');
+                        }
+                    })
+                }, false)
+            })
+    })()
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
     $(document).ready(function() {

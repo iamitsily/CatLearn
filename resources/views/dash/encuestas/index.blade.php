@@ -20,7 +20,6 @@
                     <h5 class="card-title">{{$encuesta->nombre}}</h5>
                     <p class="card-text">{{$encuesta->descripcion}}</p>
                     <p class="card-text">{{$encuesta->link}}</p>
-                    <a href="/admin/encuestas/{{$encuesta->id}}/show" class="btn btn-primary">Ver</a>
                     <form action="{{route ('encuestas.destroy',$encuesta->id)}}" method="POST">
                         @csrf
                         @method('DELETE')

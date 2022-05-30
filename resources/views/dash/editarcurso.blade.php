@@ -13,7 +13,7 @@
     </h1>
 </center><br>
 
-<form action="/admin/cursos/{{$curso->id}}" method="POST">
+<form action="/admin/nuevocurso/{{$curso->id}}" method="POST">
 @csrf 
 @method('PUT')
 <div class="mb-3">
@@ -49,7 +49,7 @@
     </div>
 
 <br>    
-<a href="{{url('admin/cursos')}}" class="btn btn-secondary" tabindex="5">CANCELAR</a>
+<a href="{{url('admin/nuevocurso')}}" class="btn btn-secondary" tabindex="5">CANCELAR</a>
 <button type="submit" class="btn btn-primary" tabindex="4">GUARDAR</button>
 </form>
 
