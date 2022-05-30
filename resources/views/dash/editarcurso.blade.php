@@ -52,6 +52,7 @@
 <a href="{{url('admin/cursos')}}" class="btn btn-secondary" tabindex="5">CANCELAR</a>
 <button type="submit" class="btn btn-primary" tabindex="4">GUARDAR</button>
 </form>
+
 @stop
 
 @section('css')

@@ -11,7 +11,7 @@
         En esta sección puedes ver los cursos existentes, administrarlos y crear nuevos.
     </h1>
 </center><br>
-<a href="{{url('admin/cursos/nuevo')}}" class="btn btn-primary">CREAR CURSO</a>
+<a href="{{route('nuevocurso.create')}}" class="btn btn-primary">CREAR CURSO</a>
 <br><br>
 <table class="table table-striped table-bordered shadow-lg mt-4" id="cursos" style="width:100%">
     <thead class="bg-green text-white">
@@ -49,7 +49,7 @@
             <td>{{$curso->fecha_fin}}</td>
             
             <td>
-                <form action="{{route ('cursos.destroy',$curso->id)}}" method="POST" class="formEliminar">
+                <form action="{{route ('nuevocurso.destroy',$curso->id)}}" method="POST" class="formEliminar">
                     <a class="btn btn-info" href="/admin/cursos/{{$curso->id}}/edit">Editar</a>
                     @csrf
                     @method('DELETE')

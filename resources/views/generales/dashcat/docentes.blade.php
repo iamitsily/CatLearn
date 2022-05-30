@@ -1,4 +1,5 @@
 @extends('layouts.plantilladash.vacia')
+@section('title', 'Docentes')
 
 @section('content')
 

@@ -9,20 +9,25 @@ use Illuminate\Http\Request;
 
 class CursoUserController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $cursos = Curso::all();
         $encuestas = Encuesta::all();
-            return view('usuarios.home',compact('cursos','encuestas'));
+        return view('usuarios.home', compact('cursos', 'encuestas'));
     }
 
-    public function show(Curso $curso){
-        return view('usuarios.detallescursos',compact('curso'));
+    public function show(Curso $curso)
+    {
+        return view('usuarios.detallescursos', compact('curso'));
     }
-    public function detalles(Curso $curso){
-        return view('usuarios.cursostop',compact('curso'));
+    public function detalles(Curso $curso)
+    {
+        return view('usuarios.cursostop', compact('curso'));
     }
-    public function encuesta(Encuesta $encuesta){
-        return view('usuarios.encuesta',compact('encuesta'));
+    public function encuesta(Encuesta $encuesta)
+    {
+        return view('usuarios.encuesta', compact('encuesta'));
     }
-    
+   
+   
 }

@@ -1,4 +1,5 @@
-@extends('generales.plantillacursos.cursos')
+@extends('layouts.plantilladash.vacia')
+@section('title', 'Soporte')
 
 @section('content')
 

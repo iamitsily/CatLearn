@@ -11,7 +11,7 @@
   <title>CatLearn</title>
 
   <!-- Favicons -->
-  <link href="{ asset('!! asset('img/favicon.png') !!) }" rel="icon" type="image/x-icon">
+  <link href="{{ asset('img/logo.jpg')}}" rel="icon" type="image/x-icon">
   <link href="{{asset('img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -38,7 +38,6 @@
 
       <h1 class="logo me-auto"><a href="{{url('/')}}">CatLearn</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
@@ -62,7 +61,7 @@
     <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
       <h1>Por aprender mejor,<br>Para aprender más!</h1>
       <h2>Somos una plataforma de aprendizaje, dedicada a prestar información de calidad para ti y todos nuestros usuarios.</h2>
-      <a href="{{url('/cursos')}}" class="btn-get-started">Iniciemos!</a>
+      <a href="{{url('/registro')}}" class="btn-get-started">Iniciemos!</a>
     </div>
   </section><!-- End Hero -->
 
@@ -73,7 +72,7 @@
 
         <div class="row">
           <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-            <img src="{{asset('img/about.jpg')}}" class="img-fluid" alt="">
+            <img src="{{asset('img/home/a2.jpg')}}" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
             <h3>¿Qué es CatLearn?</h3>
@@ -158,7 +157,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="course-item">
-              <img src="{{asset('img/course-1.jpg')}}" class="img-fluid" alt="...">
+              <img src="{{asset('img/home/a3.jpg')}}" class="img-fluid" alt="...">
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                   <h4>Programacion Declarativa</h4>
@@ -184,7 +183,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
             <div class="course-item">
-              <img src="{{asset('img/course-2.jpg')}}" class="img-fluid" alt="...">
+              <img src="{{asset('img/home/a4.jpg')}}" class="img-fluid" alt="...">
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                   <h4>Formacion Democratica</h4>
@@ -210,7 +209,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
             <div class="course-item">
-              <img src="{{asset('img/course-3.jpg')}}" class="img-fluid" alt="...">
+              <img src="{{asset('img/home/a5.jpg')}}" class="img-fluid" alt="...">
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                   <h4>Algebra Abstracta</h4>
@@ -332,7 +331,7 @@
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Suscribete a nuestro servicio de correo</h4>
             <p>Para recibir notificaciones de nuevos cursos o avisos importantes.</p>
-            <form action="" method="post">
+            <form action="catlearn@gmail.coom" method="post">
               <input type="email" name="email"><input type="submit" value="Suscribete">
             </form>
           </div>

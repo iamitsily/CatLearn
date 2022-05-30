@@ -69,7 +69,7 @@
     </div>
 
     <br>
-    <a href="{{url('admin/cursos')}}" class="btn btn-secondary" tabindex="5">CANCELAR</a>
+    <a href="{{url('admin/nuevocurso')}}" class="btn btn-secondary" tabindex="5">CANCELAR</a>
     <button type="submit" class="btn btn-primary" tabindex="4">GUARDAR</button>
 </form>
 

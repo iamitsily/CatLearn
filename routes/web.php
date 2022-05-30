@@ -1,11 +1,18 @@
 <?php
 
 //Librerias
+
+use App\Http\Controllers\CursoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\SesionController;
 use App\Http\Controllers\CursoUserController;
 use App\Http\Controllers\EncuestaController;
+use App\Http\Controllers\DocenteCursoController;
+use App\Http\Controllers\EncuestaAdmin;
+use App\Http\Controllers\EstadisticasController;
+use App\Http\Controllers\RolesController;
+
 /*
 |--------------------------------------------------------------------------
 | Routas web
@@ -39,31 +46,31 @@ Route::get('/docentes', function () {
 
 //Rutas para login y registro para usuarios y docentes
 //Login
-Route::get('/sesion',[SesionController::class,'create'])->name('sesion.index');
-Route::post('/sesion',[SesionController::class,'store'])->name('sesion.store');
-Route::get('/logout',[SesionController::class,'destroy'])->name('sesion.destroy');
+Route::get('/sesion', [SesionController::class, 'create'])->name('sesion.index');
+Route::post('/sesion', [SesionController::class, 'store'])->name('sesion.store');
+Route::get('/logout', [SesionController::class, 'destroy'])->name('sesion.destroy');
 
-Route::get('/registro',[RegistroController::class,'create'])->name('registro.index');
-Route::post('/registro',[RegistroController::class,'store'])->name('registro.store');
+Route::get('/registro', [RegistroController::class, 'create'])->name('registro.index');
+Route::post('/registro', [RegistroController::class, 'store'])->name('registro.store');
 
 
 //Una vez logeados views del ususario
 //Home
 //Mi perfil
-Route::get('/miperfil', function (){
+Route::get('/miperfil', function () {
     return view('profile.show');
 });
 
-Route::get('/home', [CursoUserController::class,'index'])->middleware('auth')->name('CursoUser.index');
+Route::get('/home', [CursoUserController::class, 'index'])->middleware('auth')->name('CursoUser.index');
 
 //Ruta para ir a la info de los cursos
-Route::get('/infocursos{curso}',[CursoUserController::class,'show'])->name('CursoUser.Show');
+Route::get('/infocursos{curso}', [CursoUserController::class, 'show'])->name('CursoUser.Show');
 
 //Ruta para ir a continuar un curso
-Route::get('/micurso{curso}',[CursoUserController::class,'detalles'])->name('CursoUser.detalles');
+Route::get('/micurso{curso}', [CursoUserController::class, 'detalles'])->name('CursoUser.detalles');
 
 //Ruta par mostrar las encuestas disponibles
-Route::get('/encuesta{encuesta}',[CursoUserController::class,'encuesta'])->name('CursoUser.encuesta');
+Route::get('/encuesta{encuesta}', [CursoUserController::class, 'encuesta'])->name('CursoUser.encuesta');
 
 
 //Rutas que requieren autentificacion para administrador
@@ -72,35 +79,37 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+
+    //*****Rutas admin*****
+
+    //Rutas para las estadisticas
+    Route::resource('/admin/estadisticas', EstadisticasController::class);
+    //Rutas para los roles
+    Route::resource('/admin/roles', RolesController::class);
+    //Regresar vista crud del controlador de los cursos
+    Route::resource('/admin/nuevocurso', CursoController::class);
+    //Regresar vista crud del controlador de los Usuarios
+    Route::resource('/admin/settings', 'App\Http\Controllers\UserController');
+    //Ver encuestas y crear nuevas desde admin
+    Route::resource('/admin/encuestas',EncuestaAdmin::class);
+
     Route::get('/admin', function () {
         return view('dash.index');
     })->name('dash');
 
-    
-    Route::get('/admin/cursos/nuevo', function () {
-        return view('dash.nuevocurso');
-    })->name('cursosnuevo');
-    Route::get('/admin/cursos/editar', function () {
-        return view('dash.editarcurso');
-    })->name('cursoseditar');
 
     Route::get('/admin/usuarios/nuevo', function () {
         return view('dash.cruduser.nuevouser');
     })->name('usernuevo');
+    
     Route::get('/admin/usuarios/editar', function () {
         return view('dash.cruduser.editaruser');
     })->name('usereditar');
-    
-    //Regresar vista crud del controlador de los cursos
-    Route::resource('/admin/cursos','App\Http\Controllers\CursoController');
-    //Regresar vista crud del controlador de los Usuarios
-    Route::resource('/admin/settings','App\Http\Controllers\UserController');
+
+    //******Rutas home******
+    //Rutas para los cursos del docente
+    Route::resource('/docente/cursos', DocenteCursoController::class);
     //Encuesta
     Route::get('/nuevaencuesta', [EncuestaController::class, 'index'])->name('encuesta.index');
     Route::post('/nuevaencuesta',  [EncuestaController::class, 'store'])->name('encuesta.store');
-
-
 });

@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Curso;
-class CursoController extends Controller
+
+class DocenteCursoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,7 @@ class CursoController extends Controller
     public function index()
     {
         $cursos = Curso::all();
-        return view('dash.cursosdash')->with('cursos',$cursos);
+        return view('docentes.cursos', compact('cursos'));
     }
 
     /**
@@ -25,7 +26,7 @@ class CursoController extends Controller
      */
     public function create()
     {
-        return view('dash.nuevocurso');
+        //
     }
 
     /**
@@ -36,7 +37,6 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        
         $cursos = new Curso();
         $cursos->id_user = $request->get('id_user');
         $cursos->nombre = $request->get('nombre');
@@ -58,9 +58,10 @@ class CursoController extends Controller
         
         $cursos->save();
 
-        return redirect("admin/cursos");
+        return redirect("docente/cursos");
+    
     }
-   
+
     /**
      * Display the specified resource.
      *
@@ -80,9 +81,7 @@ class CursoController extends Controller
      */
     public function edit($id)
     {
-        $curso = Curso::find($id);
-        return view('dash.editarcurso')->with('curso',$curso);
-
+        //
     }
 
     /**
@@ -94,24 +93,7 @@ class CursoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        $curso = Curso::find($id);
-        $curso->nombre = $request->get('nombre');
-        $curso->descripcion = $request->get('descripcion');
-        $curso->categoria = $request->get('categoria');
-        $curso->docente = $request->get('docente');
-        $curso->participante = $request->get('participantes');
-        $curso->gusta = $request->get('gusta');
-        
-        if($imagen = $request->file('img')){
-            $rutaGuardar = 'img/cursos/';
-            $imgCurso = date('YmdHis').".".$imagen->getClientOriginalExtension();
-            $imagen->move($rutaGuardar,$imgCurso);
-            $curso['imagen'] = $imgCurso;
-        }
-        $curso->update();
-
-        return redirect("admin/cursos");
+        //
     }
 
     /**
@@ -124,8 +106,6 @@ class CursoController extends Controller
     {
         $curso = Curso::find($id);
         $curso->delete();
-        return redirect("admin/cursos");
-
+        return redirect("docente/cursos");
     }
-   
 }

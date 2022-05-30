@@ -8,10 +8,10 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>CatLearn</title>
+    <title>@yield('title') | CatLearn</title>
 
     <!-- Favicons -->
-    <link href="{ asset('!! asset('img/favicon.png') !!) }" rel="icon" type="image/x-icon">
+    <link href="{{asset('img/logo.jpg')}}" rel="icon" type="image/x-icon">
     <link href="{{asset('img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -51,8 +51,8 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="courses.html" class="get-started-btn">Iniciar Sesion</a>
-      <a href="courses.html" class="get-started-btn">Registro</a>
+      <a href="{{url('/sesion')}}" class="get-started-btn">Iniciar Sesion</a>
+      <a href="{{url('/registro')}}" class="get-started-btn">Registro</a>
     </div>
   </header><!-- End Header -->
 

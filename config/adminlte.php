@@ -46,11 +46,11 @@ return [
     */
 
     'logo' => 'Cat<b>Learn</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => 'img/logo.jpg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    'logo_img_alt' => 'CatLearn',
 
     /*
     |--------------------------------------------------------------------------
@@ -233,7 +233,7 @@ return [
         ],
 
         // Sidebar items:
-       
+        ['header' => 'Plataforma'],
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
@@ -241,38 +241,53 @@ return [
         ],
         [
             'text'        => 'Cursos',
-            'url'         => '/admin/cursos',
-            'icon'        => 'far fa-fw fa-file',
+            'url'         => 'admin/nuevocurso',
+            'icon'        => 'fas fa-book-open',
+            'label'       => 'CRUD',
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Encuestas',
+            'url'         => 'admin/encuestas',
+            'icon'        => 'fas fa-comments',
             'label'       => 'CRUD',
             'label_color' => 'success',
         ],
         ['header' => 'Configuración de Usuarios'],
         [
             'text' => 'Estadisticas',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'url'  => 'admin/estadisticas',
+            'icon' => 'fas fa-chart-bar',
         ],
         [
             'text' => 'Usuarios',
             'url'  => 'admin/settings',
             'label' => 'CURD',
-            'icon' => 'fas fa-fw fa-lock',
+            'icon' => 'fas fa-users',
         ],
-       
-        ['header' => 'labels'],
+        [
+            'text' => 'Roles',
+            'url'  => 'admin/roles',
+            'label' => 'ROL',
+            'icon' => 'fas fa-code-branch',
+        ],
+        ['header' => 'Información'],
         [
             'text'       => 'Importante',
             'icon_color' => 'red',
+            'icon'=> 'fas fa-exclamation-circle',
             'url'        => '#',
         ],
         [
             'text'       => 'Reportes',
             'icon_color' => 'green',
+            'icon' => '	fas fa-bell',
             'url'        => '#',
         ],
         [
-            'text'       => 'Información    ',
-            'icon_color' => 'cyan',
+            'text'       => 'Información',
+            'icon_color' => 'blue',
+            'icon' => 'fas fa-exclamation',
             'url'        => '#',
         ],
     ],
