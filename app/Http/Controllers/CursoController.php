@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Curso;
-use SebastianBergmann\Environment\Console;
+use Illuminate\Support\Facades\File;
 
 class CursoController extends Controller
 {
@@ -17,7 +17,7 @@ class CursoController extends Controller
     public function index()
     {
         $cursos = Curso::all();
-        return view('dash.cursosdash')->with('cursos',$cursos);
+        return view('dash.crudcursos.cursosdash')->with('cursos',$cursos);
     }
 
     /**
@@ -27,7 +27,7 @@ class CursoController extends Controller
      */
     public function create()
     {
-        return view('dash.nuevocurso');
+        return view('dash.crudcursos.nuevocurso');
     }
 
     /**
@@ -96,8 +96,8 @@ class CursoController extends Controller
     public function edit($id)
     {
        $curso = Curso::find($id);
-        return view('dash.editarcurso')->with('curso',$curso);
-       // return view('dash.editarcurso',compact('curso'));  
+        return view('dash.crudcursos.editarcurso')->with('curso',$curso);
+        //return view('dash.crudcursos.editarcurso',compact('curso'));  
     }
 
     /**
@@ -107,8 +107,36 @@ class CursoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Curso $curso)
+    public function update(Request $request, $id)
     {
+
+        $curso = Curso::find($id);
+        $curso->id_user = $request->input('id_user');
+        $curso->nombre = $request->input('nombre');
+        $curso->subtitulo = $request->input('subtitulo');
+        $curso->descripcion= $request->input('descripcion');
+        $curso->categoria = $request->input('categoria');
+        $curso->docente = $request->input('docente');
+        $curso->participante = $request->input('participante');
+        $curso->gusta = $request->input('gusta');
+        //IMG
+        if($request->hasFile('imagen_curso')){
+            $destination = 'img/cursos/'.$curso->imagen;
+            if(File::exists($destination)){
+                File::delete($destination);
+            }
+            $file=$request->file('imagen_curso');
+            $extention = $file->getClientOriginalExtension();
+            $filename=time().'.'.$extention;
+            $file->move('img/cursos/',$filename);
+            $curso->imagen=$filename;
+        }
+        $curso->fecha_inicio = $request->input('fecha_inicio');
+        $curso->fecha_fin = $request->input('fecha_fin');
+        
+        $curso->update();
+        return redirect(route('nuevocurso.index'));
+
         /*$cursos = $request->all();
 
         if($imagen = $request->file('imagen')){
@@ -120,8 +148,8 @@ class CursoController extends Controller
         }else{
             unset( $cursos['imagen']);
         }*/
-
-        $cursos = $request->all(); 
+        
+        /*$cursos = $request->all(); 
         if($imagen = $request->file('imagen')) {
             $rutaGuardarImagen = 'img/cursos/';
             $ruta = $rutaGuardarImagen.$cursos['imagen'];
@@ -134,7 +162,16 @@ class CursoController extends Controller
         }
         $curso->update($cursos);
          return redirect("admin/nuevocurso");
+         */
 
+        /* $curso->update($request->only('id_user','nombre','subtitulo','descripcion','categoria','docente','participante','gusta','fecha_inicio','fecha_fin'));
+         if($request->hasFile('imagen')){
+            $imagen = $request->file('imagen')->getClientOriginalName();
+            $request->file('imagen')->storeAs('img/cursos/'.$curso->id,$imagen);
+            $curso->update(['imagen'=>$imagen]);
+         }
+
+            return redirect()->route('nuevocurso.index');*/
     }
 
     /**
@@ -143,9 +180,14 @@ class CursoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Curso $curso)
+    public function destroy($id)
     {
+        $curso =Curso::find($id);
         $curso->delete(); 
+        $destination = 'img/cursos/'.$curso->imagen;
+        if(File::exists($destination)){
+            File::delete($destination);
+        }
         return redirect("admin/nuevocurso");
     }
    

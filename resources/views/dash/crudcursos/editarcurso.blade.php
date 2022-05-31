@@ -42,7 +42,7 @@
 </div>
 <div class="mb-3">
     <label for="" class="form-label">Participantes</label>
-    <input id="participantes" name="participantes" type="number" class="form-control" tabindex="5" value="{{$curso->participante}}">
+    <input id="participantes" name="participante" type="number" class="form-control" tabindex="5" value="{{$curso->participante}}">
 </div>
 <div class="mb-3">
     <label for="" class="form-label">Likes</label>
@@ -53,15 +53,15 @@
         <img id="imgSelect" style="max-height: 300px;" src="/img/cursos/{{$curso->imagen}}"><br><br>
     </div>
     <div class="mb-3">
-        <input id="img" name="imagen" type="file" class="hidden" tabindex="6">
+        <input id="img" name="imagen_curso" type="file" class="form-control">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Fecha Inicio</label>
-        <input id="inicio" name="fecha_inicio" type="date" class="form-control" value="fecha_inicio">
+        <input id="inicio" name="fecha_inicio" type="date" class="form-control" value="{{$curso->fecha_inicio}}">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Fecha Fin</label>
-        <input id="fin" name="fecha_fin" type="date" class="form-control" tabindex="1" value="fecha_fin">
+        <input id="fin" name="fecha_fin" type="date" class="form-control" tabindex="1" value="{{$curso->fecha_fin}}">
     </div>
 <br>    
 <a href="{{url('admin/nuevocurso')}}" class="btn btn-secondary" tabindex="5">CANCELAR</a>

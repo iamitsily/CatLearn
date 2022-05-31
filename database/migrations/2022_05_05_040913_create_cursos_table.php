@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('cursos', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_user');
+            $table->foreignId('id_user')->nullable()->constrained('users')->cascadeOnUpdate()->nullOnDelete();
             $table->string('nombre',50);
             $table->string('subtitulo',50);
             $table->text('descripcion',100);
@@ -26,7 +26,6 @@ return new class extends Migration
             $table->string('imagen');
             $table->string('fecha_inicio');
             $table->string('fecha_fin');
-            $table->timestamps();
         });
     }
 

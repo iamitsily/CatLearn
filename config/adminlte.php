@@ -261,7 +261,7 @@ return [
         ],
         [
             'text' => 'Usuarios',
-            'url'  => 'admin/settings',
+            'url'  => 'admin/usuarios',
             'label' => 'CURD',
             'icon' => 'fas fa-users',
         ],

@@ -41,10 +41,10 @@
 
     <nav id="navbar" class="navbar order-last order-lg-0">
       <ul>
-        <li class="dropdown"><span>Docente</span> <i class="bi bi-chevron-down"></i>
+        <li class="dropdown"><span><b>Docente</b></span> <i class="bi bi-chevron-down"></i>
           <ul>
             <li><a href="{{url('/docente/cursos')}}">Cursos</a></li>
-            <li><a href="{{route('encuesta.index')}}">Encuestas</a></li>
+            <li><a href="{{route('nuevaencuesta.index')}}">Encuestas</a></li>
             <li><a href="{{route('sesion.destroy')}}">Estadisticas</a></li>
           </ul>
         </li>
@@ -139,8 +139,35 @@
 <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}" defer></script>
 <script src="{{asset('vendor/swiper/swiper-bundle.min.js')}}" defer></script>
 <script src="{{asset('vendor/php-email-form/validate.js')}}" defer></script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{{asset('js/main.js')}}" defer></script>
+<script>
+    (function() {
+        'use strict'
+        var forms = document.querySelectorAll('.formEliminar')
+        Array.prototype.slice.call(forms)
+            .forEach(function(form) {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                    Swal.fire({
+                        title: '¿Confirma la eliminación de la encuesta?',
+                        showCancelButton: true,
+                        confirmButtonColor: 'red',
+                        confirmButtonText: 'Confirmar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            this.submit();
+                            Swal.fire('Eliminado', 'Se elimino la encuesta', 'success');
+                        }else{
+                            console.log('no jalo');
+                        }
+                    })
+                }, false)
+            })
+    })()
+</script>
+@yield('js')
 
 </body>
 

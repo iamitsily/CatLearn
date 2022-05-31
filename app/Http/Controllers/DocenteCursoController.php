@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Curso;
+use Illuminate\Support\Facades\File;
 
 class DocenteCursoController extends Controller
 {
@@ -16,7 +17,7 @@ class DocenteCursoController extends Controller
     public function index()
     {
         $cursos = Curso::all();
-        return view('docentes.cursos', compact('cursos'));
+        return view('docentes.cursos.cursos', compact('cursos'));
     }
 
     /**
@@ -81,7 +82,8 @@ class DocenteCursoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $curso = Curso::find($id);
+        return view('docentes.cursos.modificarcurso',compact('curso'));
     }
 
     /**
@@ -93,7 +95,32 @@ class DocenteCursoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $curso = Curso::find($id);
+        $curso->id_user = $request->input('id_user');
+        $curso->nombre = $request->input('nombre');
+        $curso->subtitulo = $request->input('subtitulo');
+        $curso->descripcion= $request->input('descripcion');
+        $curso->categoria = $request->input('categoria');
+        $curso->docente = $request->input('docente');
+        $curso->participante = $request->input('participante');
+        $curso->gusta = $request->input('gusta');
+        //IMG
+        if($request->hasFile('imagen_curso')){
+            $destination = 'img/cursos/'.$curso->imagen;
+            if(File::exists($destination)){
+                File::delete($destination);
+            }
+            $file=$request->file('imagen_curso');
+            $extention = $file->getClientOriginalExtension();
+            $filename=time().'.'.$extention;
+            $file->move('img/cursos/',$filename);
+            $curso->imagen=$filename;
+        }
+        $curso->fecha_inicio = $request->input('fecha_inicio');
+        $curso->fecha_fin = $request->input('fecha_fin');
+        
+        $curso->update();
+        return redirect(route('cursos.index'));
     }
 
     /**
@@ -104,8 +131,12 @@ class DocenteCursoController extends Controller
      */
     public function destroy($id)
     {
-        $curso = Curso::find($id);
-        $curso->delete();
+        $curso =Curso::find($id);
+        $curso->delete(); 
+        $destination = 'img/cursos/'.$curso->imagen;
+        if(File::exists($destination)){
+            File::delete($destination);
+        }
         return redirect("docente/cursos");
     }
 }

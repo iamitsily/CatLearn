@@ -15,13 +15,12 @@ return new class extends Migration
     {
         Schema::create('leccions', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_curso');
+            $table->foreignId('id_curso')->nullable()->constrained('cursos')->cascadeOnUpdate()->nullOnDelete();
             $table->string('nombre',50);
-            $table->integer('id_tarea');
-            $table->integer('id_examen');
-            $table->integer('id_actividad');
-            $table->longText('informacion');
-            $table->timestamps();
+            $table->foreignId('id_tarea')->nullable()->constrained('tareas')->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId('id_examen')->nullable()->constrained('examens')->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId('id_actividad')->nullable()->constrained('actividads')->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId('informacion');
         });
     }
 

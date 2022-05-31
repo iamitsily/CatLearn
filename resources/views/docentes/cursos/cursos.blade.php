@@ -40,7 +40,7 @@
                         </div>
                         <div class="trainer d-flex justify-content-between align-items-center">
                             <div class="trainer-profile d-flex align-items-center">
-                                <a class="btn btn-success" href="/admin/cursos/{{$curso->id}}/edit">Editar</a>
+                                <a class="btn btn-success" href="{{route('cursos.edit',$curso->id)}}">Editar</a>
                             </div>
                             <div class="trainer-rank d-flex align-items-center">
                                 <form action="{{route ('cursos.destroy',$curso->id)}}" method="POST" class="formEliminar">
@@ -131,4 +131,19 @@
         </form>
     </div>
 </section>
+
 @endsection
+@section('js')
+<script>
+    $(document).ready(function(e) {
+        $('#img').change(function() {
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                $('#imgSelect').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+        });
+    });
+</script>
+
+@stop

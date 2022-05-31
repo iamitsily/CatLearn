@@ -12,6 +12,7 @@ use App\Http\Controllers\DocenteCursoController;
 use App\Http\Controllers\EncuestaAdmin;
 use App\Http\Controllers\EstadisticasController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,7 +90,7 @@ Route::middleware([
     //Regresar vista crud del controlador de los cursos
     Route::resource('/admin/nuevocurso', CursoController::class);
     //Regresar vista crud del controlador de los Usuarios
-    Route::resource('/admin/settings', 'App\Http\Controllers\UserController');
+    Route::resource('/admin/usuarios', UserController::class);
     //Ver encuestas y crear nuevas desde admin
     Route::resource('/admin/encuestas',EncuestaAdmin::class);
 
@@ -97,19 +98,9 @@ Route::middleware([
         return view('dash.index');
     })->name('dash');
 
-
-    Route::get('/admin/usuarios/nuevo', function () {
-        return view('dash.cruduser.nuevouser');
-    })->name('usernuevo');
-    
-    Route::get('/admin/usuarios/editar', function () {
-        return view('dash.cruduser.editaruser');
-    })->name('usereditar');
-
     //******Rutas home******
     //Rutas para los cursos del docente
     Route::resource('/docente/cursos', DocenteCursoController::class);
     //Encuesta
-    Route::get('/nuevaencuesta', [EncuestaController::class, 'index'])->name('encuesta.index');
-    Route::post('/nuevaencuesta',  [EncuestaController::class, 'store'])->name('encuesta.store');
+    Route::resource('/nuevaencuesta',EncuestaController::class);
 });

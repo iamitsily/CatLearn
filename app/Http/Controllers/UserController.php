@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\File;
+
 class UserController extends Controller
 {
      /**
@@ -15,7 +17,9 @@ class UserController extends Controller
     public function index()
     {
         $Users = User::all();
-        return view('dash.cruduser.userdash')->with('Users',$Users);
+//        return view('dash.cruduser.userdash')->with('Users',$Users);
+        return view('dash.cruduser.userdash',compact('Users'));
+
     }
 
     /**
@@ -36,19 +40,23 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nombre'=>'required','telefono'=>'required','idrol'=>'required','email'=>'required','password'=>'required'
-        ]);
+    
         $User = new User();
         $User->name = $request->get('nombre');
         $User->number = $request->get('telefono');
         $User->id_rol = $request->get('idrol');
         $User->email= $request->get('email');
         $User->password = $request->get('password');
-       
+        if($imagen = $request->file('imagen')){
+            $rutaGuardar = 'img/usuarios/';
+            $imgCurso = date('YmdHis').".".$imagen->getClientOriginalExtension();
+            
+            $imagen->move($rutaGuardar,$imgCurso);
+            $User['profile_photo_path'] = $imgCurso;
+        }   
         $User->save();
 
-        return redirect("{{url('admin/settings')}}");
+        return redirect("admin/usuarios");
     }
 
     /**
@@ -84,24 +92,28 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        $curso = User::find($id);
-        $curso->nombre = $request->get('nombre');
-        $curso->descripcion = $request->get('descripcion');
-        $curso->categoria = $request->get('categoria');
-        $curso->docente = $request->get('docente');
-        $curso->participante = $request->get('participantes');
-        $curso->gusta = $request->get('gusta');
-        
-        if($imagen = $request->file('img')){
-            $rutaGuardar = 'img/cursos/';
-            $imgCurso = date('YmdHis').".".$imagen->getClientOriginalExtension();
-            $imagen->move($rutaGuardar,$imgCurso);
-            $curso['imagen'] = $imgCurso;
-        }
-        $curso->save();
 
-        return redirect("admin/cursos");
+        $usuario = User::find($id);
+        $usuario->name = $request->input('nombre');
+        $usuario->number = $request->input('telefono');
+        $usuario->id_rol = $request->input('idrol');
+        $usuario->email= $request->input('email');
+      
+        if($request->hasFile('imagen_curso')){
+            $destination = 'img/usuarios/'.$usuario->profile_photo_path;
+            if(File::exists($destination)){
+                File::delete($destination);
+            }
+            $file=$request->file('imagen_curso');
+            $extention = $file->getClientOriginalExtension();
+            $filename=time().'.'.$extention;
+            $file->move('img/usuarios/',$filename);
+            $usuario->profile_photo_path=$filename;
+        }
+        
+        
+        $usuario->update();
+        return redirect(route('usuarios.index'));
     }
 
     /**
@@ -112,9 +124,13 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $curso = User::find($id);
-        $curso->delete();
-        return redirect("admin/cursos");
+        $usuario = User::find($id);
+        $usuario->delete();
+        $destination = 'img/usuarios/'.$usuario->profile_photo_path;
+        if(File::exists($destination)){
+            File::delete($destination);
+        }
+        return redirect("admin/usuarios");
 
     }
 }

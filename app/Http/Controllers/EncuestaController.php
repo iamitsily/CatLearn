@@ -14,7 +14,8 @@ class EncuestaController extends Controller
      */
     public function index()
     {
-        return view('docentes.encuesta');
+        $Encuestas = Encuesta::all();
+        return view('docentes.encuestas.encuesta',compact('Encuestas'));
     }
 
     /**
@@ -55,8 +56,10 @@ class EncuestaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Encuesta $encuesta)
+    public function edit($id)
     {
+        $Encuesta = Encuesta::find($id);
+        return view('docentes.encuestas.editarencuesta',compact('Encuesta'));
     }
 
     /**
@@ -66,9 +69,14 @@ class EncuestaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Encuesta $encuesta)
+    public function update(Request $request, $id)
     {
-        //
+        $encuesta = Encuesta::find($id);
+        $encuesta->nombre = $request->input('nombre');
+        $encuesta->descripcion = $request->input('descripcion');
+        $encuesta->link = $request->input('link');
+        $encuesta->update();
+        return redirect(route('nuevaencuesta.index'));
     }
 
     /**
@@ -77,8 +85,10 @@ class EncuestaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Encuesta $encuesta)
+    public function destroy($id)
     {
-        //
+        $encuesta=Encuesta::find($id);
+        $encuesta->delete();
+        return redirect()->route('nuevaencuesta.index');
     }
 }
