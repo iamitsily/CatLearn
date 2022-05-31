@@ -18,7 +18,7 @@
         <label for="" class="form-label">Id User Encargado</label>
         <input id="id_user" name="id_user" type="text" class="form-control" tabindex="1">
     </div>
-    
+
     <div class="mb-3">
         <label for="" class="form-label">Nombre</label>
         <input id="nombre" name="nombre" type="text" class="form-control" tabindex="1">
@@ -46,7 +46,7 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Participantes</label>
-        <input id="participantes" name="participantes" type="number" class="form-control" tabindex="5">
+        <input id="participante" name="participante" type="number" class="form-control" tabindex="5">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Likes</label>
@@ -57,15 +57,15 @@
         <img id="imgSelect" style="max-height: 300px;"><br><br>
     </div>
     <div class="mb-3">
-        <input id="img" name="img" type="file" class="hidden" tabindex="6">
+        <input name="imagen" id="img" type="file" class="hidden">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Fecha Inicio</label>
-        <input id="inicio" name="inicio" type="date" class="form-control" tabindex="1">
+        <input id="inicio" name="fecha_inicio" type="date" class="form-control" >
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Fecha Fin</label>
-        <input id="fin" name="fin" type="date" class="form-control" tabindex="1">
+        <input id="fin" name="fecha_fin" type="date" class="form-control" tabindex="1">
     </div>
 
     <br>
@@ -81,9 +81,7 @@
 @stop
 
 @section('js')
-<script>
-    console.log('Hi!');
-</script>
+
 <script>
     $(document).ready(function(e) {
         $('#img').change(function() {

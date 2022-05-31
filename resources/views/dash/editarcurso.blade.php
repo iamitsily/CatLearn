@@ -13,20 +13,28 @@
     </h1>
 </center><br>
 
-<form action="/admin/nuevocurso/{{$curso->id}}" method="POST">
+<form action="{{route('nuevocurso.update',$curso->id)}}" method="POST" enctype="multipart/form-data">
 @csrf 
 @method('PUT')
+<div class="mb-3">
+        <label for="" class="form-label">Id User Encargado</label>
+        <input id="id_user" name="id_user" type="text" class="form-control" tabindex="1" value="{{$curso->id_user}}">
+    </div>
 <div class="mb-3">
     <label for="" class="form-label">Nombre</label>
     <input id="nombre" name="nombre" type="text" class="form-control" tabindex="1" value="{{$curso->nombre}}">
 </div>
+<div class="mb-3">
+        <label for="" class="form-label">Subtitulo</label>
+        <input id="subtitulo" name="subtitulo" type="text" class="form-control" tabindex="1" value="{{$curso->subtitulo}}">
+    </div>
 <div class="mb-3">
     <label for="" class="form-label">Descripción</label>
     <input id="descripcion" name="descripcion" type="text" class="form-control" tabindex="2" value="{{$curso->descripcion}}">
 </div>
 <div class="mb-3">
     <label for="" class="form-label">Categoria</label>
-    <input id="categoria" name="categoria" type="number" class="form-control" tabindex="3" value="{{$curso->categoria}}">
+    <input id="categoria" name="categoria" type="text" class="form-control" tabindex="3" value="{{$curso->categoria}}">
 </div>
 <div class="mb-3">
     <label for="" class="form-label">Docente</label>
@@ -45,9 +53,16 @@
         <img id="imgSelect" style="max-height: 300px;" src="/img/cursos/{{$curso->imagen}}"><br><br>
     </div>
     <div class="mb-3">
-        <input id="img" name="img" type="file" class="hidden" tabindex="6">
+        <input id="img" name="imagen" type="file" class="hidden" tabindex="6">
     </div>
-
+    <div class="mb-3">
+        <label for="" class="form-label">Fecha Inicio</label>
+        <input id="inicio" name="fecha_inicio" type="date" class="form-control" value="fecha_inicio">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Fecha Fin</label>
+        <input id="fin" name="fecha_fin" type="date" class="form-control" tabindex="1" value="fecha_fin">
+    </div>
 <br>    
 <a href="{{url('admin/nuevocurso')}}" class="btn btn-secondary" tabindex="5">CANCELAR</a>
 <button type="submit" class="btn btn-primary" tabindex="4">GUARDAR</button>

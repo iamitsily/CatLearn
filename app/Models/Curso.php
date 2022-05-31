@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Curso extends Model
 {
     use HasFactory;
-    protected $fillable = ['nombre','descripcion','categoria','docente','participante','gusta','imagen'];
+    protected $fillable = ['id','id_user','nombre','subtitulo','descripcion','categoria','docente','participante','gusta','imagen','fecha_inicio','fecha_fin'];
 
     //Muchos a uno
     public function user(){

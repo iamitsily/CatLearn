@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Curso;
+use SebastianBergmann\Environment\Console;
+
 class CursoController extends Controller
 {
     /**
@@ -36,7 +38,7 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        
+        /*
         $cursos = new Curso();
         $cursos->id_user = $request->get('id_user');
         $cursos->nombre = $request->get('nombre');
@@ -59,6 +61,19 @@ class CursoController extends Controller
         $cursos->save();
 
         return redirect("admin/nuevocurso");
+        */
+        $cursos = $request->all();
+
+        if($imagen = $request->file('imagen')){
+            $rutaGuardar = 'img/cursos/';
+            $imgCurso = date('YmdHis').".".$imagen->getClientOriginalExtension();
+            
+            $imagen->move($rutaGuardar,$imgCurso);
+            $cursos['imagen'] = $imgCurso;
+        }
+        Curso::create($cursos);
+         return redirect("admin/nuevocurso");
+         
     }
    
     /**
@@ -80,9 +95,9 @@ class CursoController extends Controller
      */
     public function edit($id)
     {
-        $curso = Curso::find($id);
+       $curso = Curso::find($id);
         return view('dash.editarcurso')->with('curso',$curso);
-
+       // return view('dash.editarcurso',compact('curso'));  
     }
 
     /**
@@ -92,26 +107,34 @@ class CursoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Curso $curso)
     {
-        
-        $curso = Curso::find($id);
-        $curso->nombre = $request->get('nombre');
-        $curso->descripcion = $request->get('descripcion');
-        $curso->categoria = $request->get('categoria');
-        $curso->docente = $request->get('docente');
-        $curso->participante = $request->get('participantes');
-        $curso->gusta = $request->get('gusta');
-        
-        if($imagen = $request->file('img')){
+        /*$cursos = $request->all();
+
+        if($imagen = $request->file('imagen')){
             $rutaGuardar = 'img/cursos/';
             $imgCurso = date('YmdHis').".".$imagen->getClientOriginalExtension();
+            
             $imagen->move($rutaGuardar,$imgCurso);
-            $curso['imagen'] = $imgCurso;
-        }
-        $curso->update();
+            $cursos['imagen'] = $imgCurso;
+        }else{
+            unset( $cursos['imagen']);
+        }*/
 
-        return redirect("admin/cursos");
+        $cursos = $request->all(); 
+        if($imagen = $request->file('imagen')) {
+            $rutaGuardarImagen = 'img/cursos/';
+            $ruta = $rutaGuardarImagen.$cursos['imagen'];
+            //unlink($ruta);
+            $imagenProducto = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardarImagen, $imagenProducto);
+            $cursos['imagen'] = "$imagenProducto";
+        }else{
+            unset($cursos['imagen']);
+        }
+        $curso->update($cursos);
+         return redirect("admin/nuevocurso");
+
     }
 
     /**
@@ -120,12 +143,10 @@ class CursoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Curso $curso)
     {
-        $curso = Curso::find($id);
-        $curso->delete();
+        $curso->delete(); 
         return redirect("admin/nuevocurso");
-
     }
    
 }

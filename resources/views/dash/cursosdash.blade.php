@@ -16,7 +16,7 @@
 <table class="table table-striped table-bordered shadow-lg mt-4" id="cursos" style="width:100%">
     <thead class="bg-green text-white">
         <tr>
-            <th scope="col">ID</th>
+            <th scope="col" style="display: none;">ID</th>
             <th scope="col">Nombre</th>
             <th scope="col">Subtitulo</th>
             <th scope="col">Descripción</th>
@@ -34,7 +34,7 @@
     <tbody>
         @foreach($cursos as $curso)
         <tr>
-            <td>{{$curso->id}}</td>
+            <td style="display: none;">{{$curso->id}}</td>
             <td>{{$curso->nombre}}</td>
             <td>{{$curso->subtitulo}}</td>
             <td>{{$curso->descripcion}}</td>
@@ -50,7 +50,7 @@
             
             <td>
                 <form action="{{route ('nuevocurso.destroy',$curso->id)}}" method="POST" class="formEliminar">
-                    <a class="btn btn-info" href="/admin/nuevocurso/{{$curso->id}}/edit">Editar</a>
+                    <a class="btn btn-info" href="{{route('nuevocurso.edit',$curso->id)}}">Editar</a>
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">Borrar</button>
