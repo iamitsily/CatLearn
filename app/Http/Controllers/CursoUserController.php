@@ -6,24 +6,37 @@ use App\Http\Controllers\Controller;
 use App\Models\Curso;
 use App\Models\Encuesta;
 use Illuminate\Http\Request;
+use App\Models\inscrito;
+
 
 class CursoUserController extends Controller
 {
     public function index()
     {
+        //Incluye relacion
         $cursos = Curso::all();
         $encuestas = Encuesta::all();
-        return view('usuarios.home', compact('cursos', 'encuestas'));
-    }
+        $inscritos = inscrito::all();
+        return view('usuarios.home', compact('cursos', 'encuestas','inscritos'));
 
+    }
     public function show(Curso $curso)
     {
-        return view('usuarios.detallescursos', compact('curso'));
+        $inscritos = inscrito::all();
+        return view('usuarios.detallescursos', compact('curso','inscritos'));
     }
+    public function inscribir(Request $request){
+        $inscribir = new inscrito($request->all());
+        $inscribir->save();
+        return redirect('/home');
+    }
+
     public function detalles(Curso $curso)
     {
+        
         return view('usuarios.cursostop', compact('curso'));
     }
+
     public function encuesta(Encuesta $encuesta)
     {
         return view('usuarios.encuesta', compact('encuesta'));

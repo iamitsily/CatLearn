@@ -64,11 +64,15 @@ class User extends Authenticatable
     public function setPasswordAttribute($password){
         $this->attributes['password'] = bcrypt($password);
     }
-    //Relacion uno a muchos de cursos
+    //Relacion un usuario crea muchos cursos
     public function cursos(){
-        return $this->belongsTo(Curso::class);
+        return $this->hasMany(Curso::class,'id');
     }
-    //Relacion muchos a uno de rol
+    //Relacion un usuario pertenece a un solo curso
+    public function pertenece(){
+        return $this->belongsTo('id_user');
+    }
+    //Relacion un usuario tiene un rol
     public function Rol(){
         return $this->belongsTo(Rol::class);
     }

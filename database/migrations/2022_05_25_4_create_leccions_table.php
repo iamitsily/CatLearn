@@ -20,7 +20,8 @@ return new class extends Migration
             $table->foreignId('id_tarea')->nullable()->constrained('tareas')->cascadeOnUpdate()->nullOnDelete();
             $table->foreignId('id_examen')->nullable()->constrained('examens')->cascadeOnUpdate()->nullOnDelete();
             $table->foreignId('id_actividad')->nullable()->constrained('actividads')->cascadeOnUpdate()->nullOnDelete();
-            $table->foreignId('informacion');
+            $table->text('informacion');
+            $table->timestamps();
         });
     }
 

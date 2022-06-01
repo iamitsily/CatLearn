@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Curso;
 use Illuminate\Support\Facades\File;
-
+use App\Models\User;
 class CursoController extends Controller
 {
     /**
@@ -190,5 +190,5 @@ class CursoController extends Controller
         }
         return redirect("admin/nuevocurso");
     }
-   
+  
 }

@@ -31,13 +31,7 @@
 							@error('name')
 							<p class="mb-4	text-danger">{{$message}}</p>
 							@enderror
-							<div class="form-group mt-3">
-								<input type="text" id="user" name="user" class="form-control" required>
-								<label class="form-control-placeholder" for="username">Usuario</label>
-							</div>
-							@error('user')
-							<p class="mb-4	text-danger">{{$message}}</p>
-							@enderror
+							
 							
 							<div class="form-group mt-3">
 								<input type="email" id="email" name="email" class="form-control" required>

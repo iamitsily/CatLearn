@@ -14,6 +14,9 @@
 
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
             @foreach ($cursos as $curso)
+            
+            @if(auth()->user()->id ==$curso->id_creador)
+
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
 
                 <div class="course-item">
@@ -55,6 +58,7 @@
                 </div>
 
             </div> <!-- End Course Item-->
+            @endif
             @endforeach
 
         </div>
@@ -72,8 +76,8 @@
         <form action="{{route('cursos.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
-                <label for="" class="form-label">Id User Encargado</label>
-                <input id="id_user" name="id_user" type="text" class="form-control" tabindex="1">
+                <label for="" class="form-label">Docente: {{auth()->user()->name}} | ID: {{auth()->user()->id}}</label>
+                <input id="id_user" name="id_user" style="display: none;" type="text" class="form-control" tabindex="1" value="{{auth()->user()->id}}">
             </div>
 
             <div class="mb-3">
@@ -98,8 +102,7 @@
                 </select>
             </div>
             <div class="mb-3">
-                <label for="" class="form-label">Docente</label>
-                <input id="docente" name="docente" type="text" class="form-control" tabindex="4">
+                <input id="docente" name="docente" style="display:none ;" type="text" class="form-control" tabindex="4" value="{{auth()->user()->name}}">
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Participantes</label>

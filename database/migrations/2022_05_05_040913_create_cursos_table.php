@@ -15,7 +15,12 @@ return new class extends Migration
     {
         Schema::create('cursos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_user')->nullable()->constrained('users')->cascadeOnUpdate()->nullOnDelete();
+            //$table->foreignId('id_user')->nullable()->constrained('users')->cascadeOnUpdate()->nullOnDelete();
+            //$table->foreignId('id_creador')->nullable()->constrained('users')->cascadeOnUpdate()->nullOnDelete();
+            $table->bigInteger('id_user')->unsigned()->nullable();
+            $table->foreign('id_user')->references('id')->on('users')->onDelete("cascade");
+            $table->bigInteger('id_creador')->unsigned();
+            $table->foreign('id_creador')->references('id')->on('users')->onDelete("cascade");
             $table->string('nombre',50);
             $table->string('subtitulo',50);
             $table->text('descripcion',100);
@@ -26,6 +31,7 @@ return new class extends Migration
             $table->string('imagen');
             $table->string('fecha_inicio');
             $table->string('fecha_fin');
+            $table->timestamps();
         });
     }
 

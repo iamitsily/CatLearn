@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Curso;
 use Illuminate\Support\Facades\File;
+use App\Models\User;
 
 class DocenteCursoController extends Controller
 {
@@ -18,6 +19,7 @@ class DocenteCursoController extends Controller
     {
         $cursos = Curso::all();
         return view('docentes.cursos.cursos', compact('cursos'));
+        
     }
 
     /**
@@ -39,7 +41,7 @@ class DocenteCursoController extends Controller
     public function store(Request $request)
     {
         $cursos = new Curso();
-        $cursos->id_user = $request->get('id_user');
+        $cursos->id_creador = $request->get('id_user');
         $cursos->nombre = $request->get('nombre');
         $cursos->subtitulo = $request->get('subtitulo');
         $cursos->descripcion = $request->get('descripcion');

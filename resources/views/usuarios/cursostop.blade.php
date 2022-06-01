@@ -23,41 +23,23 @@
                 </div>
             </div>
 
-            <div class="card text-white bg-secondary my-5 py-4 text-center">
+            <div class="card text-white bg-success my-5 py-4 text-center">
                 <div class="card-body"><p class="text-white m-0">Lecciones Disponibles</p></div>
             </div>
-            
             <!-- Content Row-->
             <div class="row gx-4 gx-lg-5">
+            @foreach($curso->leccion as $lecc)
                 <div class="col-md-4 mb-5">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h2 class="card-title">Card One</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+                            <h2 class="card-title">{{$lecc->nombre}}</h2>
+                            <p class="card-text">{{$lecc->informacion}}</p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+                        <div class="card-footer"><a class="btn btn-success" href="#!">Entrar</a></div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h2 class="card-title">Card Two</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tenetur ex natus at dolorem enim! Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id dolore voluptates quos eligendi labore.</p>
-                        </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h2 class="card-title">Card Three</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
-                        </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
-
     </main>
 @endsection

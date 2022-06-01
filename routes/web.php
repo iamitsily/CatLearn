@@ -70,15 +70,19 @@ Route::get('/infocursos{curso}', [CursoUserController::class, 'show'])->name('Cu
 //Ruta para ir a continuar un curso
 Route::get('/micurso{curso}', [CursoUserController::class, 'detalles'])->name('CursoUser.detalles');
 
+//Ruta para inscribirse
+Route::post('/infocurso/inscribir',[CursoUserController::class,'inscribir'])->name('CursoUser.inscribir');
+
 //Ruta par mostrar las encuestas disponibles
 Route::get('/encuesta{encuesta}', [CursoUserController::class, 'encuesta'])->name('CursoUser.encuesta');
 
 
 //Rutas que requieren autentificacion para administrador
 Route::middleware([
-    'auth:sanctum',
+   'auth:sanctum',
+   /*
     config('jetstream.auth_session'),
-    'verified'
+    'verified'*/
 ])->group(function () {
 
     //*****Rutas admin*****
