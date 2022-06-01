@@ -15,7 +15,7 @@ class Leccion extends Model
     }
     //Uno a muchos tareas
     public function tarea(){
-        return $this->hasMany(Tarea::class);
+        return $this->hasMany(Tarea::class,'id_leccion');
     }
     //Uno a muchos examen
     public function examen(){
@@ -23,6 +23,6 @@ class Leccion extends Model
     }
     //Uno a muchos actividad
     public function actividad(){
-        return $this->hasMany(Actividad::class);
+        return $this->hasMany(Actividad::class,'id_leccion') ;
     }
 }

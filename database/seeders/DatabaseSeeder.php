@@ -19,5 +19,9 @@ class DatabaseSeeder extends Seeder
             'name'  => 'AdminCat',
             'email'     => 'admin@catlearn.com',
             'password'  => bcrypt('catlearn'),
-        ]);    }
+        ]);    
+      
+        
+    }
+        
 }

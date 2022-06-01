@@ -47,10 +47,10 @@
                     @csrf
 
                     <div class="mb-3">
-                        <input id="nombre" name="id_user" type="text" class="form-control" tabindex="1" value="{{auth()->user()->id}}">
+                        <input id="nombre" name="id_user" type="text" style="display: none;" class="form-control" tabindex="1" value="{{auth()->user()->id}}">
                     </div>
                     <div class="mb-3">
-                        <input id="subtitulo" name="id_curso" type="text" class="form-control" tabindex="1" value="{{$curso->id}}">
+                        <input id="subtitulo" name="id_curso" style="display: none;" type="text" class="form-control" tabindex="1" value="{{$curso->id}}">
                     </div>
                     <a href="{{url('/home')}}" class="btn btn-secondary" tabindex="5">CANCELAR</a>
                     <button type="submit" class="get-started-btn" 

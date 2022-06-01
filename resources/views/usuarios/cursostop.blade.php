@@ -35,7 +35,7 @@
                             <h2 class="card-title">{{$lecc->nombre}}</h2>
                             <p class="card-text">{{$lecc->informacion}}</p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-success" href="#!">Entrar</a></div>
+                        <div class="card-footer"><a class="btn btn-success" href="{{route('CursoUser.leccion',$lecc->id)}}">Entrar</a></div>
                     </div>
                 </div>
                 @endforeach

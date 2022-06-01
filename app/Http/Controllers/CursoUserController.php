@@ -7,7 +7,7 @@ use App\Models\Curso;
 use App\Models\Encuesta;
 use Illuminate\Http\Request;
 use App\Models\inscrito;
-
+use App\Models\Leccion;
 
 class CursoUserController extends Controller
 {
@@ -33,10 +33,11 @@ class CursoUserController extends Controller
 
     public function detalles(Curso $curso)
     {
-        
         return view('usuarios.cursostop', compact('curso'));
     }
-
+    public function leccion(Leccion $leccion){
+        return view('usuarios.leccion',compact('leccion'));
+    }
     public function encuesta(Encuesta $encuesta)
     {
         return view('usuarios.encuesta', compact('encuesta'));
