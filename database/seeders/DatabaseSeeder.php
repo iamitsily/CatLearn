@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,13 +16,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name'  => 'AdminCat',
-            'email'     => 'admin@catlearn.com',
-            'password'  => bcrypt('catlearn'),
-        ]);    
+       
       
-        
+        $this->call([
+            PermissionSeeder::class,
+            RoleSeeder::class,
+            RoleHasPermissionSeeder::class,
+        ]);
+        $user = User::create([
+            'name' => 'AdminCat',
+            'email' => 'admin@catlearn.com',
+            'password' => ('catlearn'),
+        ]);
+
+        $user->assignRole('Admin');
     }
         
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Leccion;
 use App\Models\Examen;
+use Illuminate\Support\Facades\Gate;
 
 class ExamenController extends Controller
 {
@@ -58,6 +59,8 @@ class ExamenController extends Controller
      */
     public function show($id)
     {
+        abort_if(Gate::denies('docente'),403 or Gate::denies('admin'),403);
+
         $examen = Examen::pluck('id', 'titulo', 'realizada', 'fecha_inicio', 'fecha_fin', 'calificacion');
         $leccion = Leccion::find($id);
         return view('docentes.cursos.curdexamenes.index', compact('leccion', 'examen'));

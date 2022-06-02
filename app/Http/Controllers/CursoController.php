@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Curso;
 use Illuminate\Support\Facades\File;
 use App\Models\User;
+use Illuminate\Support\Facades\Gate;
+
 class CursoController extends Controller
 {
     /**
@@ -16,6 +18,7 @@ class CursoController extends Controller
      */
     public function index()
     {
+        abort_if(Gate::denies('admin'),403);
         $cursos = Curso::all();
         return view('dash.crudcursos.cursosdash')->with('cursos',$cursos);
     }

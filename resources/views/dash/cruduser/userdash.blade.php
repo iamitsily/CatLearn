@@ -21,7 +21,7 @@
             <th scope="col"style="display: none;">ID</th>
             <th scope="col">Nombre</th>
             <th scope="col">Telefono</th>
-            <th scope="col">Id_rol</th>
+            <th scope="col">Roles</th>
             <th scope="col">email</th>
             <th scope="col">Foto de Perfil</th>
             <th scope="col">Opciones</th>
@@ -33,7 +33,13 @@
             <td style="display: none;">{{$user->id}}</td>
             <td>{{$user->name}}</td>
             <td>{{$user->number}}</td>
-            <td>{{$user->id_rol}}</td>
+            <td>
+                @forelse($user->roles as $role)
+                    <span class="badge badge-info">{{ $role->name }}</span>
+                @empty
+                    <span class="badge badge-danger">No roles</span>
+                @endforelse
+            </td>
             <td>{{$user->email}}</td>
             <td>
                 <img src="/img/usuarios/{{$user->profile_photo_path}}" width="100px" height="100px">

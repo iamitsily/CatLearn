@@ -23,8 +23,25 @@
         <input id="telefono" name="telefono" type="number" class="form-control" tabindex="2">
     </div>
     <div class="mb-3">
-        <label for="" class="form-label">Id_rol</label>
-        <input id="idrol" name="idrol" type="text" class="form-control" tabindex="3">
+        <label for="" class="form-label">Roles</label>
+        <table class="table table-bordered border-dark" id="cursos" style="width:30%">
+            <thead class="bg-green text-white">
+            </thead>
+            <tbody>
+                @foreach ($roles as $id => $role)
+                <tr>
+                    <td>
+                        <input class="" type="checkbox" name="roles[]" value="{{ $id }}">
+                        <span class="form-check-sign">
+                            <span class="check"></span>
+                    </td>
+                    <td>
+                        {{ $role }}
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Email</label>

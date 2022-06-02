@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Curso;
 use App\Models\Leccion;
+use Illuminate\Support\Facades\Gate;
+
 class LeccionController extends Controller
 {
     /**
@@ -54,6 +56,8 @@ class LeccionController extends Controller
      */
     public function show($id)
     {
+        abort_if(Gate::denies('docente'),403 or Gate::denies('admin'),403);
+
         //$leccion=Leccion::find($id);
         //$curso=Curso::pluck('id','nombre');
         $leccion=Leccion::pluck('id','nombre');

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Curso;
 use Illuminate\Support\Facades\File;
 use App\Models\User;
+use Illuminate\Support\Facades\Gate;
 
 class DocenteCursoController extends Controller
 {
@@ -17,6 +18,8 @@ class DocenteCursoController extends Controller
      */
     public function index()
     {
+        abort_if(Gate::denies('docente'),403 or Gate::denies('admin'),403);
+
         $cursos = Curso::all();
         return view('docentes.cursos.cursos', compact('cursos'));
         

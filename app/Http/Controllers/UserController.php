@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\File;
+use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Gate;
+
 
 class UserController extends Controller
 {
@@ -16,6 +19,8 @@ class UserController extends Controller
      */
     public function index()
     {
+        abort_if(Gate::denies('admin'),403);
+
         $Users = User::all();
 //        return view('dash.cruduser.userdash')->with('Users',$Users);
         return view('dash.cruduser.userdash',compact('Users'));
@@ -29,7 +34,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('dash.cruduser.nuevouser');
+        $roles = Role::all()->pluck('name','id');
+        return view('dash.cruduser.nuevouser',compact('roles'));
     }
 
     /**
@@ -44,7 +50,6 @@ class UserController extends Controller
         $User = new User();
         $User->name = $request->get('nombre');
         $User->number = $request->get('telefono');
-        $User->id_rol = $request->get('idrol');
         $User->email= $request->get('email');
         $User->password = $request->get('password');
         if($imagen = $request->file('imagen')){
@@ -54,6 +59,8 @@ class UserController extends Controller
             $imagen->move($rutaGuardar,$imgCurso);
             $User['profile_photo_path'] = $imgCurso;
         }   
+        $roles = $request->input('roles',[]);
+        $User->syncRoles($roles);
         $User->save();
 
         return redirect("admin/usuarios");
@@ -78,8 +85,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $User = User::find($id);
-        return view('dash.cruduser.editaruser')->with('user',$User);
+        $user = User::find($id);
+        
+        $roles = Role::all()->pluck('name','id');
+        $user->load('roles');
+        return view('dash.cruduser.editaruser',compact('user','roles'));
 
     }
 
@@ -96,7 +106,6 @@ class UserController extends Controller
         $usuario = User::find($id);
         $usuario->name = $request->input('nombre');
         $usuario->number = $request->input('telefono');
-        $usuario->id_rol = $request->input('idrol');
         $usuario->email= $request->input('email');
       
         if($request->hasFile('imagen_curso')){
@@ -111,7 +120,8 @@ class UserController extends Controller
             $usuario->profile_photo_path=$filename;
         }
         
-        
+        $roles = $request->input('roles',[]);
+        $usuario->syncRoles($roles);
         $usuario->update();
         return redirect(route('usuarios.index'));
     }
@@ -125,6 +135,11 @@ class UserController extends Controller
     public function destroy($id)
     {
         $usuario = User::find($id);
+        
+
+        if(auth()->user()->id==$usuario->id){
+            return redirect()->route('usuarios.index');
+        }
         $usuario->delete();
         $destination = 'img/usuarios/'.$usuario->profile_photo_path;
         if(File::exists($destination)){

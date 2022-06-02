@@ -24,7 +24,7 @@ class RegistroController extends Controller
         ]);
         
         $user = User::create(request(['name','email','number','password']));
-        
+        $user->assignRole('Usuario');
         auth()->login($user);
        
         return redirect("/home");   

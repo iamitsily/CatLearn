@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class EstadisticasController extends Controller
 {
@@ -14,6 +15,7 @@ class EstadisticasController extends Controller
      */
     public function index()
     {
+        abort_if(Gate::denies('admin'),403);
         return view('dash.estadisticas.estadistica');
     }
 

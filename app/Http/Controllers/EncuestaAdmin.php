@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Encuesta;
+use Illuminate\Support\Facades\Gate;
+
 class EncuestaAdmin extends Controller
+
 {
     /**
      * Display a listing of the resource.
@@ -14,6 +17,8 @@ class EncuestaAdmin extends Controller
      */
     public function index()
     {
+        abort_if(Gate::denies('admin'),403);
+
         $encuestas=Encuesta::all();
         return view('dash.encuestas.index',compact('encuestas'));
     }

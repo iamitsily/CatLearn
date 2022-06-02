@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Tarea;
 use App\Models\Leccion;
+use Illuminate\Support\Facades\Gate;
 
 class TareaController extends Controller
 {
@@ -60,6 +61,7 @@ class TareaController extends Controller
      */
     public function show($id)
     {
+        abort_if(Gate::denies('docente'),403 or Gate::denies('admin'),403);
         $tarea=Tarea::pluck('id','titulo','descripcion','fecha_inicio','fecha_fin','documento','calificacion','realizada');
         $leccion=Leccion::find($id);
         return view('docentes.cursos.crudtarea.index',compact('leccion','tarea'));

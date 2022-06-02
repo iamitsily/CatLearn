@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Actividad;
 use App\Models\Leccion;
+use Illuminate\Support\Facades\Gate;
 
 class ActividadController extends Controller
 {
@@ -57,6 +58,8 @@ class ActividadController extends Controller
      */
     public function show($id)
     {
+        abort_if(Gate::denies('docente'),403 or Gate::denies('admin'),403);
+
         $actividad=Actividad::pluck('id','titulo','fecha_entrega','documento','calificacion','realizada');
         $leccion=Leccion::find($id);
         return view('docentes.cursos.crudactividad.index',compact('leccion','actividad'));

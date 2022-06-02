@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
-class RolesController extends Controller
+use Spatie\Permission\Models\Permission;
+class PermissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class RolesController extends Controller
      */
     public function index()
     {
-        return view('dash.roles.rol');
+        $permissions = Permission::paginate(5);
+        return view('dash.permisos.index',compact('permissions'));
     }
 
     /**
@@ -24,7 +25,7 @@ class RolesController extends Controller
      */
     public function create()
     {
-        //
+        return view('dash.permisos.create');
     }
 
     /**
@@ -35,7 +36,8 @@ class RolesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Permission::create($request->only('name'));
+        return redirect()->route('permisos.index');
     }
 
     /**
@@ -46,7 +48,8 @@ class RolesController extends Controller
      */
     public function show($id)
     {
-        //
+        $permission=Permission::find($id);
+        return view('dash.permisos.show',compact('permission'));
     }
 
     /**
@@ -57,7 +60,8 @@ class RolesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $permission=Permission::find($id);
+        return view('dash.permisos.edit',compact('permission'));
     }
 
     /**
@@ -69,7 +73,10 @@ class RolesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $permission = Permission::find($id);
+        $permission->name=$request->input('name');
+        $permission->update();
+        return redirect()->route('permisos.index');
     }
 
     /**
@@ -78,8 +85,10 @@ class RolesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( $id)
     {
-        //
+        $permission = Permission::find($id);
+        $permission->delete();
+        return redirect()->route('permisos.index');
     }
 }

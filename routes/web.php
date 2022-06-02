@@ -14,9 +14,11 @@ use App\Http\Controllers\EncuestaAdmin;
 use App\Http\Controllers\EstadisticasController;
 use App\Http\Controllers\ExamenController;
 use App\Http\Controllers\LeccionController;
-use App\Http\Controllers\RolesController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\TareaController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
+use Illuminate\Support\Facades\Gate;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,7 +75,9 @@ Route::middleware([
     //Rutas para las estadisticas
     Route::resource('/admin/estadisticas', EstadisticasController::class);
     //Rutas para los roles
-    Route::resource('/admin/roles', RolesController::class);
+    Route::resource('/admin/roles', RoleController::class);
+    //Ruta para los permisos
+    Route::resource('/admin/permisos', PermissionController::class);
     //Regresar vista crud del controlador de los cursos
     Route::resource('/admin/nuevocurso', CursoController::class);
     //Regresar vista crud del controlador de los Usuarios
@@ -82,6 +86,7 @@ Route::middleware([
     Route::resource('/admin/encuestas', EncuestaAdmin::class);
 
     Route::get('/admin', function () {
+        abort_if(Gate::denies('admin'),403);
         return view('dash.index');
     })->name('dash');
 

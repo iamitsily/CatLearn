@@ -18,7 +18,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('number')->unique()->nullable();
-            $table->foreignId('id_rol')->nullable()->constrained('rols')->cascadeOnUpdate()->nullOnDelete();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

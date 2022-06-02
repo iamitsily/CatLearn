@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Encuesta;
+use Illuminate\Support\Facades\Gate;
+
 class EncuestaController extends Controller
 {
     /**
@@ -14,6 +16,8 @@ class EncuestaController extends Controller
      */
     public function index()
     {
+        abort_if(Gate::denies('docente'),403 or Gate::denies('admin'),403);
+
         $Encuestas = Encuesta::all();
         return view('docentes.encuestas.encuesta',compact('Encuestas'));
     }

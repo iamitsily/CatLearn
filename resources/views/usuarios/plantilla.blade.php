@@ -41,6 +41,7 @@
 
     <nav id="navbar" class="navbar order-last order-lg-0">
       <ul>
+        @can('docente')
         <li class="dropdown"><span><b>Docente</b></span> <i class="bi bi-chevron-down"></i>
           <ul>
             <li><a href="{{url('/docente/cursos')}}">Cursos</a></li>
@@ -48,13 +49,13 @@
             <li><a href="{{route('sesion.destroy')}}">Estadisticas</a></li>
           </ul>
         </li>
+        @endcan
+        @can('admin')
         <li><a href="{{url('/admin')}}">Administrador</a></li>
+        @endcan
         @if(auth()->check())
         <li class="dropdown"><a href="#"><span>{{auth()->user()->name}}</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
-
-            <li><a href="{{url('/miperfil')}}">Mi Perfil</a></li>
-            <li><a href="#">Mis Cursos</a></li>
             <li><a href="{{route('sesion.destroy')}}">Cerrar Sesión</a></li>
           </ul>
         </li>

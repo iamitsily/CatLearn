@@ -271,25 +271,13 @@ return [
             'label' => 'ROL',
             'icon' => 'fas fa-code-branch',
         ],
-        ['header' => 'Información'],
         [
-            'text'       => 'Importante',
-            'icon_color' => 'red',
-            'icon'=> 'fas fa-exclamation-circle',
-            'url'        => '#',
+            'text' => 'Permisos',
+            'url'  => 'admin/permisos',
+            'label' => 'Permisos',
+            'icon' => '	fas fa-fingerprint',
         ],
-        [
-            'text'       => 'Reportes',
-            'icon_color' => 'green',
-            'icon' => '	fas fa-bell',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'Información',
-            'icon_color' => 'blue',
-            'icon' => 'fas fa-exclamation',
-            'url'        => '#',
-        ],
+       
     ],
 
     /*
