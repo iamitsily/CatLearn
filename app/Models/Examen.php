@@ -14,7 +14,7 @@ class Examen extends Model
         return $this->belongsTo(Leccion::class);
     }
 
-    //Uno a muchos preguntas
+    //Uno a muchos preguntas**
     public function pregunta(){
         return $this->belongsTo(Pregunta::class);
     }

@@ -8,7 +8,9 @@ use App\Models\Encuesta;
 use Illuminate\Http\Request;
 use App\Models\inscrito;
 use App\Models\Leccion;
-
+use App\Models\Tarea;
+use App\Models\Examen;
+use App\Models\Actividad;
 class CursoUserController extends Controller
 {
     public function index()
@@ -36,12 +38,25 @@ class CursoUserController extends Controller
         return view('usuarios.cursostop', compact('curso'));
     }
     public function leccion(Leccion $leccion){
+
         return view('usuarios.leccion',compact('leccion'));
     }
     public function encuesta(Encuesta $encuesta)
     {
         return view('usuarios.encuesta', compact('encuesta'));
     }
-   
+   public function verTarea($id){
+
+        $tarea=Tarea::find($id);
+       return view('usuarios.vertarea',compact('tarea'));
+   }
+   public function verActividad($id){
+       $actividad=Actividad::find($id);
+       return view('usuarios.veractividad',compact('actividad'));
+   }
+   public function verExamen($id){
+       $examen=Examen::find($id);
+       return view('usuarios.verexamen',compact('examen'));
+   }
    
 }

@@ -22,9 +22,7 @@
                         <h1 class="fw-bolder mb-1">{{$leccion->nombre}}</h1>
 
                     </header>
-                    <!-- Preview image figure-->
-                    <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
-                    <!-- Post content-->
+                   
                     <section class="mb-5">
                         {{$leccion->informacion}}
                     </section>
@@ -43,7 +41,7 @@
                                     
                                     @foreach($leccion->tarea as $tare)
                                         @if($tare->realizada==0)
-                                        <li><a href="#!">{{$tare->titulo}}</a></li>
+                                        <li><a href="{{route('CursoUser.tarea',$tare->id)}}">{{$tare->titulo}}</a></li>
                                         @else
                                         <li>{{$tare->titulo}} | Hecha</li>
                                         @endif
@@ -52,7 +50,7 @@
                             <div class="col-sm-6">
                                     @foreach($leccion->actividad as $acti)
                                         @if($acti->realizada==0)
-                                    <li><a href="#!">{{$acti->titulo}}</a></li>
+                                    <li><a href="{{route('CursoUser.actividad',$acti->id)}}">{{$acti->titulo}}</a></li>
                                         @else
                                     <li>{{$acti->titulo}} | Hecha</li>
                                         @endif
@@ -68,7 +66,7 @@
                     <div class="card-body">
                         @foreach($leccion->examen as $exam)
                             @if($exam->realizada==0)
-                            <li><a href="#!">{{$exam->titulo}}</a></li>
+                            <li><a href="{{route('CursoUser.examen',$exam->id)}}">{{$exam->titulo}}</a></li>
                             @else
                             <li>{{$exam->titulo}} | Hecha</li>
                             @endif

@@ -15,7 +15,7 @@
             <a class="nav-link text-white bg-success disabled" href="">Editar Leccion</a>
             <a class="nav-link text-success" href="{{route('actividad.show',$leccion->id)}}">Actividades</a>
             <a class="nav-link text-success" href="{{route('tarea.show',$leccion->id)}}">Tareas</a>
-            <a class="nav-link text-success" href="">Examenes</a>
+            <a class="nav-link text-success" href="{{route('examen.show',$leccion->id)}}">Examenes</a>
         </nav>
     </div>
 </section>

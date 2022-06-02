@@ -12,6 +12,7 @@ use App\Http\Controllers\EncuestaController;
 use App\Http\Controllers\DocenteCursoController;
 use App\Http\Controllers\EncuestaAdmin;
 use App\Http\Controllers\EstadisticasController;
+use App\Http\Controllers\ExamenController;
 use App\Http\Controllers\LeccionController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\TareaController;
@@ -93,6 +94,8 @@ Route::middleware([
     Route::resource('/docente/actividad',ActividadController::class);
     //Rutas para las tareas
     Route::resource('/docente/tarea',TareaController::class);
+    //Ruta para los examenes
+    Route::resource('/docente/examen',ExamenController::class);
     //Encuesta
     Route::resource('/nuevaencuesta', EncuestaController::class);
 
@@ -113,6 +116,15 @@ Route::middleware([
 
     //Ruta para ver la lección de un curso
     Route::get('/curso/leccion{leccion}',[CursoUserController::class,'leccion'])->name('CursoUser.leccion');
+
+    //Ruta para ver la tarea
+    Route::get('/curso/tarea{tarea}',[CursoUserController::class,'verTarea'])->name('CursoUser.tarea');
+
+    //Ruta para ver la actividad
+    Route::get('/curso/actividad{actividad}',[CursoUserController::class,'verActividad'])->name('CursoUser.actividad');
+
+    //Ruta para ver el examen
+    Route::get('/curso/examen{examen}',[CursoUserController::class,'verExamen'])->name('CursoUser.examen');
 
     //Ruta para inscribirse
     Route::post('/infocurso/inscribir', [CursoUserController::class, 'inscribir'])->name('CursoUser.inscribir');

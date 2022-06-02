@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Tarea;
 use App\Models\Leccion;
+use App\Models\Examen;
 
-class TareaController extends Controller
+class ExamenController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,17 +37,15 @@ class TareaController extends Controller
      */
     public function store(Request $request)
     {
-        $cursos = new Tarea();
-        $cursos->id_leccion  = $request->get('id_leccion');
-        $cursos->titulo = $request->get('titulo');
-        $cursos->descripcion = $request->get('descripcion');
-        $cursos->fecha_inicio = $request->get('fecha_inicio');
-        $cursos->fecha_fin = $request->get('fecha_fin');
-        $cursos->documento = $request->get('documento');
-        $cursos->calificacion = $request->get('calificacion');
-        $cursos->realizada = $request->get('realizada');
-        
-        $cursos->save();
+        $examen = new Examen();
+        $examen->id_leccion  = $request->get('id_leccion');
+        $examen->titulo = $request->get('nombre');
+        $examen->realizada = $request->get('realizada');
+        $examen->fecha_inicio = $request->get('fecha_inicio');
+        $examen->fecha_fin = $request->get('fecha_fin');
+        $examen->calificacion = $request->get('calificacion');
+
+        $examen->save();
 
         return back();
     }
@@ -60,9 +58,9 @@ class TareaController extends Controller
      */
     public function show($id)
     {
-        $tarea=Tarea::pluck('id','titulo','descripcion','fecha_inicio','fecha_fin','documento','calificacion','realizada');
-        $leccion=Leccion::find($id);
-        return view('docentes.cursos.crudtarea.index',compact('leccion','tarea'));
+        $examen = Examen::pluck('id', 'titulo', 'realizada', 'fecha_inicio', 'fecha_fin', 'calificacion');
+        $leccion = Leccion::find($id);
+        return view('docentes.cursos.curdexamenes.index', compact('leccion', 'examen'));
     }
 
     /**
@@ -73,8 +71,8 @@ class TareaController extends Controller
      */
     public function edit($id)
     {
-        $tarea=Tarea::find($id);
-        return view('docentes.cursos.crudtarea.editar',compact('tarea'));
+        $examen=Examen::find($id);
+        return view('docentes.cursos.curdexamenes.editar',compact('examen'));
     }
 
     /**
@@ -86,14 +84,14 @@ class TareaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tarea = Tarea::find($id);
-        $tarea->titulo = $request->input('titulo');
-        $tarea->descripcion = $request->input('descripcion');
-        $tarea->fecha_inicio = $request->input('fecha_inicio');
-        $tarea->fecha_fin = $request->input('fecha_fin');
-        $tarea->documento = $request->input('documento');
-        $tarea->update();
-        return redirect("/docente/tarea/$id");
+        $examen = Examen::find($id);
+        $examen->titulo = $request->input('nombre');
+        $examen->realizada = $request->get('realizada');
+        $examen->fecha_inicio = $request->input('fecha_inicio');
+        $examen->fecha_fin = $request->input('fecha_fin');
+        $examen->calificacion = $request->get('calificacion');
+        $examen->update();
+        return redirect("/docente/cursos");
     }
 
     /**
@@ -104,8 +102,8 @@ class TareaController extends Controller
      */
     public function destroy($id)
     {
-        $tarea=Tarea::find($id);
-        $tarea->delete();
+        $examen=Examen::find($id);
+        $examen->delete();
         return back();
     }
 }
