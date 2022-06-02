@@ -40,19 +40,24 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-6">
-                                <ul class="list-unstyled mb-0">
                                     
                                     @foreach($leccion->tarea as $tare)
-                                    <li><a href="#!">{{$tare->titulo}}</a></li>
+                                        @if($tare->realizada==0)
+                                        <li><a href="#!">{{$tare->titulo}}</a></li>
+                                        @else
+                                        <li>{{$tare->titulo}} | Hecha</li>
+                                        @endif
                                     @endforeach
-                                </ul>
                             </div>
                             <div class="col-sm-6">
-                                <ul class="list-unstyled mb-0">
                                     @foreach($leccion->actividad as $acti)
+                                        @if($acti->realizada==0)
                                     <li><a href="#!">{{$acti->titulo}}</a></li>
+                                        @else
+                                    <li>{{$acti->titulo}} | Hecha</li>
+                                        @endif
                                    @endforeach
-                                </ul>
+                                
                             </div>
                         </div>
                     </div>
@@ -61,9 +66,13 @@
                 <div class="card mb-4">
                     <div class="card-header">Examenes</div>
                     <div class="card-body">
-                        @foreach($leccion->actividad as $acti)
-                        <li><a href="#!">{{$acti->titulo}}</a></li>
-                        @endforeach
+                        @foreach($leccion->examen as $exam)
+                            @if($exam->realizada==0)
+                            <li><a href="#!">{{$exam->titulo}}</a></li>
+                            @else
+                            <li>{{$exam->titulo}} | Hecha</li>
+                            @endif
+                        @endforeach 
                     </div>
                 </div>
             </div>

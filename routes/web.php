@@ -2,6 +2,7 @@
 
 //Librerias
 
+use App\Http\Controllers\ActividadController;
 use App\Http\Controllers\CursoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistroController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\EncuestaController;
 use App\Http\Controllers\DocenteCursoController;
 use App\Http\Controllers\EncuestaAdmin;
 use App\Http\Controllers\EstadisticasController;
+use App\Http\Controllers\LeccionController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UserController;
 
@@ -84,6 +86,10 @@ Route::middleware([
     //******Rutas home******
     //Rutas para los cursos del docente
     Route::resource('/docente/cursos', DocenteCursoController::class);
+    //Rutas para lecciones del docente
+    Route::resource('/docente/lecciones',LeccionController::class);
+    //Rutas para las actividades
+    Route::resource('/docente/actividad',ActividadController::class);
     //Encuesta
     Route::resource('/nuevaencuesta', EncuestaController::class);
 
@@ -104,7 +110,7 @@ Route::middleware([
 
     //Ruta para ver la lección de un curso
     Route::get('/curso/leccion{leccion}',[CursoUserController::class,'leccion'])->name('CursoUser.leccion');
-    
+
     //Ruta para inscribirse
     Route::post('/infocurso/inscribir', [CursoUserController::class, 'inscribir'])->name('CursoUser.inscribir');
 

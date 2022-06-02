@@ -141,4 +141,5 @@ class DocenteCursoController extends Controller
         }
         return redirect("docente/cursos");
     }
+
 }

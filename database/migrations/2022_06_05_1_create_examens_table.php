@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_leccion')->nullable()->constrained('leccions')->cascadeOnUpdate()->nullOnDelete();
             $table->string('titulo',50);
+            $table->boolean('realizada');
             $table->string('fecha_inicio');
             $table->string('fecha_fin');
             $table->float('calificacion');

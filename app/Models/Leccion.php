@@ -19,7 +19,7 @@ class Leccion extends Model
     }
     //Uno a muchos examen
     public function examen(){
-        return $this->hasMany(Examen::class);
+        return $this->hasMany(Examen::class,'id_leccion');
     }
     //Uno a muchos actividad
     public function actividad(){

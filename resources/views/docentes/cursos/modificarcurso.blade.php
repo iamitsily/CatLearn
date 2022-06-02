@@ -11,12 +11,20 @@
 </div>
 <section id="courses" class="courses">
     <div class="container" data-aos="fade-up">
+<nav class="nav nav-pills nav-justified">
+  <a class="nav-link active disabled bg-success" href="#">Opciones</a>
+  <a class="nav-link text-success" href="{{route('lecciones.show',$curso->id)}}">Lecciones</a>
+</nav>
+    </div>
+</section>
+<section id="courses" class="courses">
+    <div class="container" data-aos="fade-up">
         <form action="{{route('cursos.update',$curso->id)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-3">
-                <label for="" class="form-label">Id User Encargado</label>
-                <input id="id_user" name="id_user" type="text" class="form-control" tabindex="1" value="{{$curso->id_user}}">
+                <label for="" class="form-label">Docente Creador</label>
+                <input id="id_user" name="" disabled type="text" class="form-control" tabindex="1" value="{{auth()->user()->name}}">
             </div>
 
             <div class="mb-3">
@@ -35,13 +43,13 @@
             <div class="mb-3">
                 <label for="" class="form-label">Categoria</label>
                 <select name="categoria">
-                   
+
                     <option>Español</option>
-                   
+
                     <option>Matematicas</option>
-                   
+
                     <option>Programacion</option>
-                   
+
                 </select>
             </div>
             <div class="mb-3">

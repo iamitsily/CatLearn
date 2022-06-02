@@ -5,7 +5,7 @@
 <div class="breadcrumbs">
     <div class="container">
         <h2>Administra tus cursos como docente</h2>
-        <p>Crea o administra tus cursos existentes</p>
+        <p>Administra tus cursos existentes</p>
     </div>
 </div>
 
@@ -68,7 +68,7 @@
 <div class="breadcrumbs">
     <div class="container">
         <h2>Crear Curso</h2>
-        <p>Descubre tu nuevo curso, estos estan disponibles para ti. Revisalos e inscribete! uwu</p>
+        <p>Crea un nuevo curso para tus estudiantes!</p>
     </div>
 </div>
 <section id="courses" class="courses">
