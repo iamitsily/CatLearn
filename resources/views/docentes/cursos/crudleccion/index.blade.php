@@ -75,7 +75,7 @@
                 <input id="subtitulo" name="informacion" type="text" class="form-control" tabindex="1">
             </div>
             <br>
-            <a href="{{url('/docente/cursos')}}" class="btn btn-secondary" tabindex="5">CANCELAR</a>
+            <a href="javascript:history.back(-1)" class="btn btn-secondary" tabindex="5">CANCELAR</a>
             <button type="submit" class="btn btn-success" tabindex="4">GUARDAR</button>
         </form>
     </div>

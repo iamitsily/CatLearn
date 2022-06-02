@@ -9,7 +9,6 @@
         <p>Descubre tu nuevo curso, estos estan disponibles para ti. Revisalos e inscribete! uwu</p>
     </div>
 </div>
-
 <section id="courses" class="courses">
     <div class="container" data-aos="fade-up">
 
@@ -43,9 +42,9 @@
 
             </div> <!-- End Course Item-->
             @endforeach
-</div>
+        </div>
 
-</div>
+    </div>
 </section><!-- End Courses Section -->
 
 <div class="breadcrumbs">

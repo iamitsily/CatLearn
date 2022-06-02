@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Actividad;
+use App\Models\Tarea;
 use App\Models\Leccion;
 
-class ActividadController extends Controller
+class TareaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,13 +37,16 @@ class ActividadController extends Controller
      */
     public function store(Request $request)
     {
-        $cursos = new Actividad();
-        $cursos->id_leccion = $request->get('id_leccion');
+        $cursos = new Tarea();
+        $cursos->id_leccion  = $request->get('id_leccion');
         $cursos->titulo = $request->get('titulo');
-        $cursos->fecha_entrga = $request->get('fecha_entrega');
+        $cursos->descripcion = $request->get('descripcion');
+        $cursos->fecha_inicio = $request->get('fecha_inicio');
+        $cursos->fecha_fin = $request->get('fecha_fin');
         $cursos->documento = $request->get('documento');
         $cursos->calificacion = $request->get('calificacion');
         $cursos->realizada = $request->get('realizada');
+        
         $cursos->save();
 
         return back();
@@ -57,9 +60,9 @@ class ActividadController extends Controller
      */
     public function show($id)
     {
-        $actividad=Actividad::pluck('id','titulo','fecha_entrega','documento','calificacion','realizada');
+        $tarea=Tarea::pluck('id','titulo','descripcion','fecha_inicio','fecha_fin','documento','calificacion','realizada');
         $leccion=Leccion::find($id);
-        return view('docentes.cursos.crudactividad.index',compact('leccion','actividad'));
+        return view('docentes.cursos.crudtarea.index',compact('leccion','tarea'));
     }
 
     /**
@@ -70,8 +73,7 @@ class ActividadController extends Controller
      */
     public function edit($id)
     {
-        $actividad = Actividad::find($id);
-        return view('docentes.cursos.crudactividad.editar',compact('actividad'));
+        //
     }
 
     /**
@@ -83,13 +85,7 @@ class ActividadController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $curso = Actividad::find($id);
-        $curso->titulo = $request->input('titulo');
-        $curso->fecha_entrga = $request->input('fecha_entrega');
-        $curso->documento = $request->input('documento');
-
-        $curso->update();
-        return redirect("/docente/actividad/$id");
+        //
     }
 
     /**
@@ -100,8 +96,6 @@ class ActividadController extends Controller
      */
     public function destroy($id)
     {
-        $actividad=Actividad::find($id);
-        $actividad->delete();
-        return back();
+        //
     }
 }

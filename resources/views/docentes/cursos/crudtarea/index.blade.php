@@ -1,11 +1,11 @@
 @extends('usuarios.plantilla')
-@section('title', 'Actividad')
+@section('title', 'Tarea')
 
 @section('content')
 <div class="breadcrumbs">
     <div class="container">
-        <h2>Actividad</h2>
-        <p>En esta seccion puedes revisar las actividades de la leccion <b>{{$leccion->nombre}}</b></p>
+        <h2>Tarea</h2>
+        <p>En esta seccion puedes revisar las tareas de la leccion <b>{{$leccion->nombre}}</b></p>
     </div>
 </div>
 <section id="courses" class="courses">
@@ -22,26 +22,31 @@
             <thead class="bg-white text-gray">
                 <tr>
                     <th scope="col">Lección</th>
-                    <th scope="col">Titulo Actividad</th>
-                    <th scope="col">Fecha Entrega</th>
+                    <th scope="col">Titulo Tarea</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Fecha Inicio</th>
+                    <th scope="col">Fecha Fin</th>
                     <th scope="col">Documento</th>
                     <th scope="col">Calificacion</th>
                     <th scope="col">Realizada</th>
+                    
                 </tr>
             </thead>
             <tbody>
 
-                @foreach($leccion->actividad as $acti)
+                @foreach($leccion->tarea as $tare)
                 <tr>
                     <td>{{$leccion->nombre}}</td>
-                    <td>{{$acti->titulo}}</td>
-                    <td>{{$acti->fecha_entrga}}</td>
-                    <td>{{$acti->documento}}</td>
-                    <td>{{$acti->calificacion}}</td>
-                    <td>{{$acti->realizada}}</td>
+                    <td>{{$tare->titulo}}</td>
+                    <td>{{$tare->descripcion}}</td>
+                    <td>{{$tare->fecha_inicio}}</td>
+                    <td>{{$tare->fecha_fin}}</td>
+                    <td>{{$tare->documento}}</td>
+                    <td>{{$tare->calificacion}}</td>
+                    <td>{{$tare->realizada}}</td>
                     <td>
-                        <form action="{{route ('actividad.destroy',$acti->id)}}" method="POST" class="formEliminar">
-                            <a class="btn btn-success" href="{{route('actividad.edit',$acti->id)}}">Editar</a><br>
+                        <form action="{{route ('tarea.destroy',$tare->id)}}" method="POST" class="formEliminar">
+                            <a class="btn btn-success" href="{{route('tarea.edit',$tare->id)}}">Editar</a><br>
 
                             @csrf
                             @method('DELETE')
@@ -56,13 +61,13 @@
 </section>
 <div class="breadcrumbs">
     <div class="container">
-        <h2>Crear Actividad</h2>
-        <p>En esta seccion puedes crear las actividades de tu leccion</p>
+        <h2>Crear Tarea</h2>
+        <p>En esta seccion puedes crear las tareas de tu leccion</p>
     </div>
 </div>
 <section id="courses" class="courses">
     <div class="container" data-aos="fade-up">
-        <form action="{{route('actividad.store')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('tarea.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="" class="form-label">Leccion | {{$leccion->nombre}}</label>
@@ -74,8 +79,16 @@
                 <input id="nombre" name="titulo" type="text" class="form-control" tabindex="1">
             </div>
             <div class="mb-3">
+                <label for="" class="form-label">Descripcion</label>
+                <input id="nombre" name="descripcion" type="text" class="form-control" tabindex="1">
+            </div>
+            <div class="mb-3">
                 <label for="" class="form-label">Fecha Entrega</label>
-                <input id="subtitulo" name="fecha_entrega" type="date" class="form-control" tabindex="1">
+                <input id="subtitulo" name="fecha_inicio" type="date" class="form-control" tabindex="1">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Fecha Fin</label>
+                <input id="subtitulo" name="fecha_fin" type="date" class="form-control" tabindex="1">
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Documento</label>

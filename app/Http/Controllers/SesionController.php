@@ -11,6 +11,7 @@ class SesionController extends Controller
     public function create(){
         return view('credenciales.iniciosesion');
     }
+    
     public function store(){
         if(auth()->attempt(request(['email','password'])) == false){
             return back()->withErrors([

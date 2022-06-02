@@ -98,6 +98,8 @@ class LeccionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $leccion=Leccion::find($id);
+        $leccion->delete();
+        return back();
     }
 }

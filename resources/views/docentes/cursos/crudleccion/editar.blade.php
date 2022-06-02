@@ -11,9 +11,10 @@
 <section id="courses" class="courses">
     <div class="container" data-aos="fade-up">
         <nav class="nav nav-pills nav-justified">
+            <a class="nav-link text-success" href="javascript:history.back(-1)">Ir a lecciones</a>
             <a class="nav-link text-white bg-success disabled" href="">Editar Leccion</a>
-            <a class="nav-link text-success" href="javascript:history.back(-1)">Lecciones</a>
             <a class="nav-link text-success" href="{{route('actividad.show',$leccion->id)}}">Actividades</a>
+            <a class="nav-link text-success" href="{{route('tarea.show',$leccion->id)}}">Tareas</a>
             <a class="nav-link text-success" href="">Examenes</a>
         </nav>
     </div>

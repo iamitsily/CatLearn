@@ -14,6 +14,7 @@ use App\Http\Controllers\EncuestaAdmin;
 use App\Http\Controllers\EstadisticasController;
 use App\Http\Controllers\LeccionController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\TareaController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -90,6 +91,8 @@ Route::middleware([
     Route::resource('/docente/lecciones',LeccionController::class);
     //Rutas para las actividades
     Route::resource('/docente/actividad',ActividadController::class);
+    //Rutas para las tareas
+    Route::resource('/docente/tarea',TareaController::class);
     //Encuesta
     Route::resource('/nuevaencuesta', EncuestaController::class);
 
