@@ -5,7 +5,8 @@
 @section('content')
 <div class="breadcrumbs">
     <div class="container">
-        <h2>Cursos Disponibles</h2>
+        <h1>Bienvenido a CatLearn</h1>
+        <h3>Usuarios Activos | {{$users->count()}}</h3> 
         <p>Descubre tu nuevo curso, estos estan disponibles para ti. Revisalos e inscribete! uwu</p>
     </div>
 </div>

@@ -107,7 +107,7 @@ Route::middleware([
     //Una vez logeados views del ususario
     //Home
     //Mi perfil
-    Route::get('/miperfil', function () {
+    Route::get('/docente/estadistica', function () {
         return view('profile.show');
     });
 

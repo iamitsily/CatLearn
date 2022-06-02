@@ -46,7 +46,7 @@
           <ul>
             <li><a href="{{url('/docente/cursos')}}">Cursos</a></li>
             <li><a href="{{route('nuevaencuesta.index')}}">Encuestas</a></li>
-            <li><a href="{{route('sesion.destroy')}}">Estadisticas</a></li>
+            <li><a href="{{url('/docente/estadistica')}}">Estadisticas</a></li>
           </ul>
         </li>
         @endcan
@@ -63,7 +63,7 @@
 
         @endif
         <li><a class="active" href="{{url('/home')}}">INICIO</a></li>
-
+        
 
       </ul>
     </nav><!-- .navbar -->
@@ -71,7 +71,6 @@
 
   </div>
 </header><!-- End Header -->
-
 <main id="main">
 
   @yield('content')

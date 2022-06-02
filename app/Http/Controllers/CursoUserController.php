@@ -11,15 +11,17 @@ use App\Models\Leccion;
 use App\Models\Tarea;
 use App\Models\Examen;
 use App\Models\Actividad;
+use App\Models\User;
 class CursoUserController extends Controller
 {
     public function index()
     {
         //Incluye relacion
         $cursos = Curso::all();
+        $users = User::all();
         $encuestas = Encuesta::all();
         $inscritos = inscrito::all();
-        return view('usuarios.home', compact('cursos', 'encuestas','inscritos'));
+        return view('usuarios.home', compact('cursos', 'encuestas','inscritos','users'));
 
     }
     public function show(Curso $curso)
